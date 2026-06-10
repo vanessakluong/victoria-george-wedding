@@ -92,6 +92,28 @@
       padding: 5rem 2rem;
     }
 
+    /* ── PAGE NAV PILLS ── */
+    .page-nav {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 2.5rem;
+    }
+    .page-pill {
+      font-family: var(--font-body);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 7px 24px;
+      border: 0.5px solid rgba(201,185,138,0.28);
+      border-radius: 99px;
+      color: var(--gold-dim);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .page-pill:hover        { border-color: var(--gold); color: var(--cream); }
+    .page-pill.active       { background: rgba(201,185,138,0.14); border-color: var(--gold); color: var(--cream); }
+
     /* ── NOTE LINK ── */
     .note-link {
       display: inline-flex;
@@ -307,7 +329,7 @@
 
     .wedding-day-title {
       font-family: var(--font-script);
-      font-size: clamp(72px, 11vw, 110px);
+      font-size: clamp(44px, 11vw, 110px);
       color: #e2c07a;
       line-height: 1;
       margin-bottom: 1.25rem;
@@ -546,9 +568,13 @@
 <section class="sec-olive">
   <div class="inner">
     <div style="text-align:center; margin-bottom:3rem;">
+      <nav class="page-nav">
+        <a class="page-pill active" href="/">Phuket</a>
+        <a class="page-pill" href="/bangkok.html">Bangkok</a>
+      </nav>
       <h1 class="script-heading" style="color:var(--cream); font-size:clamp(52px,8vw,80px); margin-bottom:0.4rem;">Victoria &amp; George</h1>
       <p style="font-family:var(--font-body); font-size:12px; letter-spacing:0.26em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.25rem;">Wedding Itinerary</p>
-      <p style="font-family:var(--font-body); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-dim); opacity:0.7;">January 25 – February 7, 2027</p>
+      <p style="font-family:var(--font-body); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-dim); opacity:0.7;">January 25 – 31, 2027 · Phuket, Thailand</p>
     </div>
 
     <!-- Jan 25 -->
@@ -690,133 +716,14 @@
       <div class="vline"></div>
       <div class="event-body">
         <span class="tag tag-travel">Travel</span>
-        <h3 class="event-title">Fly Phuket → Bangkok</h3>
-        <p class="event-note">~1.5 hr flight. Multiple daily departures on Thai Airways, Bangkok Airways &amp; AirAsia. Check in to Bangkok hotel. Evening: riverside dinner or Khao San Road area.</p>
+        <h3 class="event-title">Fly Home</h3>
+        <p class="event-note">Phuket International Airport (HKT). Allow 3 hours before departure. Safe travels — what an incredible week. <em>Continuing to Bangkok?</em> See the Bangkok itinerary above.</p>
       </div>
     </article>
 
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     BANGKOK SECTION
-═══════════════════════════════════════════ -->
-<section class="sec-olive">
-  <div class="inner">
-    <h2 class="sec-label">Bangkok &amp; GP's Hometown</h2>
-
-    <!-- Feb 1 -->
-    <article class="event-card" data-tags="bangkok travel">
-      <div class="date-col">
-        <span class="date-dow">Mon</span>
-        <span class="date-num">Feb 1</span>
-      </div>
-      <div class="vline"></div>
-      <div class="event-body">
-        <span class="tag tag-travel">Road Trip</span>
-        <h3 class="event-title">Drive to GP's Hometown</h3>
-        <p class="event-note">Consider stopping at the <em>Ayutthaya ruins</em> en route — a UNESCO World Heritage site and only a short detour.</p>
-      </div>
-    </article>
-
-    <!-- Feb 2 -->
-    <article class="event-card" data-tags="bangkok family">
-      <div class="date-col">
-        <span class="date-dow">Tue</span>
-        <span class="date-num">Feb 2</span>
-      </div>
-      <div class="vline"></div>
-      <div class="event-body">
-        <span class="tag tag-family">Family</span>
-        <h3 class="event-title">Dinner with GP's Family</h3>
-        <p class="event-note">Explore local markets and the town in the morning. Rest in the afternoon, then dinner with the family in the evening.</p>
-      </div>
-    </article>
-
-    <!-- Feb 3 -->
-    <article class="event-card" data-tags="bangkok travel">
-      <div class="date-col">
-        <span class="date-dow">Wed</span>
-        <span class="date-num">Feb 3</span>
-      </div>
-      <div class="vline"></div>
-      <div class="event-body">
-        <span class="tag tag-travel">Travel</span>
-        <h3 class="event-title">Drive Back to Bangkok</h3>
-        <p class="event-note">Return to Bangkok and check in. Evening: rooftop drinks — <em>Vertigo at Banyan Tree</em> or <em>Octave Rooftop</em> are both good.</p>
-      </div>
-    </article>
-
-    <!-- Feb 4 -->
-    <article class="event-card" data-tags="bangkok explore">
-      <div class="date-col">
-        <span class="date-dow">Thu</span>
-        <span class="date-num">Feb 4</span>
-      </div>
-      <div class="vline"></div>
-      <div class="event-body">
-        <span class="tag tag-explore">Temples</span>
-        <h3 class="event-title">Grand Palace &amp; River</h3>
-        <div class="sub-items">
-          <div class="sub-item"><span class="sub-time">Morning</span><span class="sub-text">Grand Palace &amp; Wat Phra Kaew (Emerald Buddha) — arrive early, it gets crowded and hot by midday</span></div>
-          <div class="sub-item"><span class="sub-time">Midday</span><span class="sub-text">Wat Pho (Reclining Buddha) + traditional Thai massage on-site</span></div>
-          <div class="sub-item"><span class="sub-time">Afternoon</span><span class="sub-text">Chao Phraya ferry to Wat Arun (Temple of Dawn)</span></div>
-          <div class="sub-item"><span class="sub-time">Evening</span><span class="sub-text">Chinatown (Yaowarat Road) — street food, open late</span></div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Feb 5 -->
-    <article class="event-card" data-tags="bangkok explore">
-      <div class="date-col">
-        <span class="date-dow">Fri</span>
-        <span class="date-num">Feb 5</span>
-      </div>
-      <div class="vline"></div>
-      <div class="event-body">
-        <span class="tag tag-explore">Markets</span>
-        <h3 class="event-title">Markets &amp; Neighborhoods</h3>
-        <div class="sub-items">
-          <div class="sub-item"><span class="sub-time">Morning</span><span class="sub-text">Chatuchak Weekend Market — 15,000 stalls, one of the world's largest (open Sat–Sun; swap with Feb 6 if preferred)</span></div>
-          <div class="sub-item"><span class="sub-time">Afternoon</span><span class="sub-text">Siam Square shopping or Jim Thompson House (silk &amp; history)</span></div>
-          <div class="sub-item"><span class="sub-time">Evening</span><span class="sub-text">Asiatique The Riverfront — night market on the river, easy to spend a few hours</span></div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Feb 6 -->
-    <article class="event-card" data-tags="bangkok explore">
-      <div class="date-col">
-        <span class="date-dow">Sat</span>
-        <span class="date-num">Feb 6</span>
-      </div>
-      <div class="vline"></div>
-      <div class="event-body">
-        <span class="tag tag-explore">Day Trip</span>
-        <h3 class="event-title">Day Trip from Bangkok</h3>
-        <div class="sub-items">
-          <div class="sub-item"><span class="sub-time">Option A</span><span class="sub-text">Ayutthaya — ancient capital ruins, ~1.5 hr by train or car. UNESCO World Heritage Site.</span></div>
-          <div class="sub-item"><span class="sub-time">Option B</span><span class="sub-text">Damnoen Saduak floating market — classic canal boat experience, ~1.5 hrs from Bangkok</span></div>
-          <div class="sub-item"><span class="sub-time">Option C</span><span class="sub-text">Erawan National Park — tiered waterfalls, ~3 hr drive each way</span></div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Feb 7 -->
-    <article class="event-card" data-tags="bangkok travel" style="border-bottom:none;">
-      <div class="date-col">
-        <span class="date-dow">Sun</span>
-        <span class="date-num">Feb 7</span>
-      </div>
-      <div class="vline"></div>
-      <div class="event-body">
-        <span class="tag tag-travel">Departure</span>
-        <h3 class="event-title">Fly Home from Bangkok</h3>
-        <p class="event-note">Suvarnabhumi (BKK) for most international routes; Don Mueang (DMK) for budget carriers. Allow 3 hours before departure.</p>
-      </div>
-    </article>
-  </div>
-</section>
 
 <!-- torn: olive → dark olive -->
 <div class="torn" style="background:var(--olive-mid);">
@@ -844,19 +751,12 @@
 <script>
   const DAYS = [
     { key: 'jan25', label: 'Mon · Jan 25', title: 'Arrival' },
-    { key: 'jan26', label: 'Tue · Jan 26', title: 'Free Day — Phuket' },
+    { key: 'jan26', label: 'Tue · Jan 26', title: 'Free Day' },
     { key: 'jan27', label: 'Wed · Jan 27', title: 'Thai Ceremony' },
     { key: 'jan28', label: 'Thu · Jan 28', title: 'Rehearsal Dinner' },
     { key: 'jan29', label: 'Fri · Jan 29', title: 'The Wedding' },
     { key: 'jan30', label: 'Sat · Jan 30', title: 'Yacht Party' },
-    { key: 'jan31', label: 'Sun · Jan 31', title: 'Fly to Bangkok' },
-    { key: 'feb1',  label: 'Mon · Feb 1',  title: "GP's Hometown" },
-    { key: 'feb2',  label: 'Tue · Feb 2',  title: 'Family Dinner' },
-    { key: 'feb3',  label: 'Wed · Feb 3',  title: 'Back to Bangkok' },
-    { key: 'feb4',  label: 'Thu · Feb 4',  title: 'Grand Palace' },
-    { key: 'feb5',  label: 'Fri · Feb 5',  title: 'Markets' },
-    { key: 'feb6',  label: 'Sat · Feb 6',  title: 'Day Trip' },
-    { key: 'feb7',  label: 'Sun · Feb 7',  title: 'Fly Home' },
+    { key: 'jan31', label: 'Sun · Jan 31', title: 'Fly Home' },
   ];
 
   // ── NOTE CARDS IN GRID ──
