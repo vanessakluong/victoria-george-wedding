@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Victoria &amp; George · Wedding Itinerary</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --olive:       #5c6130;
+      --olive-dark:  #3d4118;
+      --olive-mid:   #4a5125;
+      --gold:        #c9b98a;
+      --gold-dim:    #a89870;
+      --cream:       #e8dfc8;
+      --parchment:   #e2d9c0;
+      --espresso:    #2a1a0e;
+      --espresso-mid:#3d2712;
+      --brown-text:  #4a2e15;
+      --brown-muted: #6b4a2a;
+
+      --font-script:  'Great Vibes', cursive;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Cormorant Garamond', Georgia, serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--olive-dark);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: var(--olive);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 4rem 2rem;
+    }
+
+    .hero-botanical {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .hero-monogram {
+      width: 100px;
+      height: 120px;
+      border: 1px solid var(--gold);
+      border-radius: 50% / 55%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      font-family: var(--font-script);
+      font-size: 44px;
+      color: var(--gold);
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-script);
+      font-size: clamp(60px, 10vw, 96px);
+      color: var(--cream);
+      line-height: 1.05;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-date {
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+
+    /* ── TORN PAPER ── */
+    .torn {
+      display: block;
+      width: 100%;
+      height: 60px;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .torn svg { display: block; width: 100%; height: 100%; }
+
+    /* ── PARCHMENT SECTION ── */
+    .sec-parchment {
+      background: var(--parchment);
+      color: var(--brown-text);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .script-heading {
+      font-family: var(--font-script);
+      font-size: clamp(44px, 6vw, 68px);
+      color: var(--espresso);
+      margin-bottom: 1.75rem;
+      line-height: 1.1;
+    }
+
+    .caps-body {
+      max-width: 680px;
+      margin: 0 auto;
+      font-family: var(--font-body);
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      line-height: 2.2;
+      color: var(--brown-muted);
+    }
+
+    /* ── OLIVE SECTION ── */
+    .sec-olive {
+      background: var(--olive-mid);
+      padding: 4rem 2rem;
+    }
+
+    /* ── ESPRESSO SECTION ── */
+    .sec-espresso {
+      background: var(--espresso);
+      color: var(--cream);
+      padding: 5rem 2rem;
+    }
+
+    /* ── DARK OLIVE SECTION ── */
+    .sec-dark {
+      background: var(--olive-dark);
+      padding: 5rem 2rem;
+    }
+
+    /* ── FILTERS ── */
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem 0 2.5rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .pill {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 6px 20px;
+      border: 0.5px solid #c9b98a44;
+      border-radius: 99px;
+      background: transparent;
+      color: var(--gold-dim);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .pill:hover       { border-color: var(--gold); color: var(--cream); }
+    .pill.active      { background: #c9b98a22; border-color: var(--gold); color: var(--cream); }
+
+    /* ── SECTION LABEL ── */
+    .sec-label {
+      font-family: var(--font-script);
+      font-size: clamp(38px, 5vw, 56px);
+      color: var(--cream);
+      margin-bottom: 2rem;
+      line-height: 1.1;
+    }
+
+    .inner { max-width: 820px; margin: 0 auto; }
+
+    /* ── EVENT CARD ── */
+    .event-card {
+      display: flex;
+      gap: 20px;
+      padding: 1.75rem 0;
+      border-bottom: 0.5px solid #c9b98a18;
+      align-items: flex-start;
+    }
+    .event-card:last-child { border-bottom: none; }
+
+    .date-col {
+      min-width: 72px;
+      flex-shrink: 0;
+      text-align: right;
+    }
+
+    .date-dow {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+
+    .date-num {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      line-height: 1.7;
+    }
+
+    .vline {
+      width: 0.5px;
+      background: #c9b98a28;
+      align-self: stretch;
+      flex-shrink: 0;
+    }
+
+    .event-body { flex: 1; }
+
+    .tag {
+      display: inline-block;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 2px 10px;
+      border: 0.5px solid currentColor;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+    .tag-wedding { color: #e2c07a; }
+    .tag-travel  { color: #9ab8d6; }
+    .tag-explore { color: #a8c49a; }
+    .tag-family  { color: #d4a0a0; }
+    .tag-stay    { color: var(--gold); }
+
+    .event-title {
+      font-family: var(--font-display);
+      font-size: clamp(18px, 2.5vw, 26px);
+      font-weight: 700;
+      color: var(--cream);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .event-venue {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: 13px;
+      color: var(--gold);
+      margin-bottom: 2px;
+    }
+
+    .event-venue-addr {
+      font-size: 11px;
+      color: var(--gold-dim);
+      text-decoration: underline;
+      display: block;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+
+    .event-note {
+      font-size: 14px;
+      color: var(--gold-dim);
+      line-height: 1.7;
+    }
+    .event-note em { font-style: normal; color: var(--gold); }
+
+    .sub-items { margin-top: 10px; }
+    .sub-item {
+      display: flex;
+      gap: 14px;
+      padding: 5px 0;
+      border-top: 0.5px solid #c9b98a10;
+      align-items: flex-start;
+    }
+    .sub-item:first-child { border-top: none; }
+    .sub-time { font-size: 11px; letter-spacing: 0.05em; color: #c9b98a55; min-width: 68px; padding-top: 2px; flex-shrink: 0; }
+    .sub-text { font-size: 14px; color: var(--gold-dim); line-height: 1.6; }
+
+    /* ── PARCHMENT EVENT CARD OVERRIDES ── */
+    .on-parchment .event-card  { border-bottom-color: #4a2e1522; }
+    .on-parchment .date-dow    { color: #8a6a40; }
+    .on-parchment .date-num    { color: #8a6a40; }
+    .on-parchment .vline       { background: #4a2e1520; }
+    .on-parchment .event-title { color: var(--espresso); }
+    .on-parchment .event-note  { color: var(--brown-muted); }
+    .on-parchment .event-note em { color: #8a5a20; }
+    .on-parchment .sub-time    { color: #8a6a4055; }
+    .on-parchment .sub-text    { color: var(--brown-muted); }
+    .on-parchment .event-venue { color: #7a5a28; }
+    .on-parchment .event-venue-addr { color: #8a6a40; }
+    .on-parchment .tag-travel  { color: #5a7a9a; }
+    .on-parchment .tag-explore { color: #5a8050; }
+    .on-parchment .tag-family  { color: #a07070; }
+    .on-parchment .tag-stay    { color: #8a6a30; }
+
+    /* ── WEDDING DAY BANNER ── */
+    .wedding-day-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .wedding-day-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 8px;
+    }
+
+    .wedding-day-title {
+      font-family: var(--font-script);
+      font-size: clamp(56px, 9vw, 88px);
+      color: #e2c07a;
+      line-height: 1.05;
+      margin-bottom: 1rem;
+    }
+
+    .wedding-day-venue {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+    .wedding-day-venue a { color: inherit; text-decoration: underline; }
+
+    .timeline-row {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 760px;
+      margin: 3rem auto 0;
+      border: 0.5px solid #c9b98a18;
+    }
+
+    .tl-cell {
+      flex: 1;
+      min-width: 160px;
+      padding: 1.75rem 1.25rem;
+      text-align: center;
+      border-right: 0.5px solid #c9b98a18;
+    }
+    .tl-cell:last-child { border-right: none; }
+
+    .tl-time  { font-size: 11px; letter-spacing: 0.12em; color: var(--gold-dim); display: block; margin-bottom: 6px; }
+    .tl-event {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--cream);
+      line-height: 1.15;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .tl-venue { font-size: 11px; font-style: italic; color: var(--gold); display: block; }
+
+    /* ── DRESS CODE ── */
+    .dress-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* ── NOTES ── */
+    .notes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .note-card {
+      background: rgba(255,255,255,0.04);
+      border: 0.5px solid #c9b98a18;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .note-label {
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 4px;
+    }
+
+    .note-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--cream);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 10px;
+    }
+
+    .note-ta {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 0.5px solid #c9b98a28;
+      color: var(--gold-dim);
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.7;
+      resize: none;
+      padding: 4px 0;
+      outline: none;
+      min-height: 64px;
+    }
+    .note-ta::placeholder { color: #c9b98a28; }
+    .note-ta:focus { border-bottom-color: var(--gold); color: var(--cream); }
+
+    .saved-dot {
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      color: #a8c49a;
+      opacity: 0;
+      transition: opacity 0.3s;
+      margin-top: 4px;
+    }
+    .saved-dot.show { opacity: 1; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--espresso);
+      border-top: 0.5px solid #c9b98a10;
+      text-align: center;
+      padding: 3rem 0 1.5rem;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #c9b98a30;
+    }
+
+    /* ── HIDDEN ── */
+    .hidden { display: none !important; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .notes-grid  { grid-template-columns: 1fr; }
+      .tl-cell     { min-width: 120px; }
+      .date-col    { min-width: 58px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+<header class="hero">
+  <!-- botanical watermark -->
+  <svg class="hero-botanical" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" fill="var(--cream)">
+    <!-- left cluster -->
+    <ellipse cx="70"  cy="220" rx="14" ry="48" transform="rotate(-35 70 220)"/>
+    <ellipse cx="45"  cy="170" rx="11" ry="38" transform="rotate(-60 45 170)"/>
+    <ellipse cx="95"  cy="275" rx="17" ry="52" transform="rotate(-18 95 275)"/>
+    <ellipse cx="125" cy="360" rx="19" ry="54" transform="rotate(22 125 360)"/>
+    <ellipse cx="48"  cy="395" rx="15" ry="44" transform="rotate(-42 48 395)"/>
+    <ellipse cx="145" cy="435" rx="13" ry="36" transform="rotate(12 145 435)"/>
+    <line x1="85" y1="320" x2="82" y2="80"  stroke="var(--cream)" stroke-width="1.5" fill="none"/>
+    <line x1="85" y1="320" x2="48" y2="395" stroke="var(--cream)" stroke-width="1"   fill="none"/>
+    <!-- left flower -->
+    <circle cx="195" cy="145" r="7"/>
+    <ellipse cx="195" cy="122" rx="7" ry="18"/>
+    <ellipse cx="195" cy="168" rx="7" ry="18"/>
+    <ellipse cx="172" cy="145" rx="18" ry="7"/>
+    <ellipse cx="218" cy="145" rx="18" ry="7"/>
+    <!-- right cluster -->
+    <ellipse cx="1110" cy="290" rx="17" ry="50" transform="rotate(28 1110 290)"/>
+    <ellipse cx="1140" cy="195" rx="14" ry="42" transform="rotate(52 1140 195)"/>
+    <ellipse cx="1085" cy="375" rx="19" ry="54" transform="rotate(16 1085 375)"/>
+    <ellipse cx="1158" cy="455" rx="15" ry="44" transform="rotate(38 1158 455)"/>
+    <ellipse cx="1065" cy="460" rx="13" ry="36" transform="rotate(-10 1065 460)"/>
+    <line x1="1115" y1="340" x2="1118" y2="80"  stroke="var(--cream)" stroke-width="1.5" fill="none"/>
+    <line x1="1115" y1="340" x2="1158" y2="455" stroke="var(--cream)" stroke-width="1"   fill="none"/>
+    <!-- bottom foliage -->
+    <ellipse cx="290"  cy="710" rx="21" ry="58" transform="rotate(-22 290 710)"/>
+    <ellipse cx="580"  cy="755" rx="24" ry="64" transform="rotate(4 580 755)"/>
+    <ellipse cx="870"  cy="720" rx="20" ry="55" transform="rotate(18 870 720)"/>
+    <line x1="290"  y1="800" x2="270"  y2="610" stroke="var(--cream)" stroke-width="1.5" fill="none"/>
+    <line x1="870"  y1="800" x2="892"  y2="615" stroke="var(--cream)" stroke-width="1.5" fill="none"/>
+    <!-- top right sprig -->
+    <ellipse cx="1050" cy="65"  rx="12" ry="32" transform="rotate(45 1050 65)"/>
+    <ellipse cx="1020" cy="90"  rx="10" ry="28" transform="rotate(70 1020 90)"/>
+    <ellipse cx="1080" cy="88"  rx="12" ry="30" transform="rotate(20 1080 88)"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-monogram">V&amp;G</div>
+    <p class="hero-eyebrow">A wedding travel itinerary</p>
+    <h1 class="hero-title">Victoria &amp; George</h1>
+    <p class="hero-date">January 25 – February 7, 2027 &nbsp;·&nbsp; Phuket &amp; Bangkok, Thailand</p>
+  </div>
+</header>
+
+<!-- torn: olive → parchment -->
+<div class="torn" style="background:var(--olive);">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 L0,32 Q48,58 96,36 Q144,14 192,42 Q240,62 288,38 Q336,16 384,44 Q432,62 480,36 Q528,12 576,40 Q624,62 672,36 Q720,14 768,44 Q816,62 864,38 Q912,18 960,46 Q1008,64 1056,38 Q1104,16 1152,44 Q1200,62 1248,36 Q1296,14 1344,42 Q1392,60 1440,36 L1440,0 Z" fill="var(--parchment)"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     WELCOME
+═══════════════════════════════════════════ -->
+<section class="sec-parchment">
+  <p class="script-heading">To our favorite people,</p>
+  <p class="caps-body">
+    Welcome to our wedding travel guide. We are so excited to celebrate this special chapter with you in beautiful Thailand. Here you will find everything you need for our wedding week — day by day, from arrival through departure. We cannot wait to share this journey with you.
+  </p>
+</section>
+
+<!-- torn: parchment → olive -->
+<div class="torn" style="background:var(--parchment);">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 L0,32 Q48,58 96,36 Q144,14 192,42 Q240,62 288,38 Q336,16 384,44 Q432,62 480,36 Q528,12 576,40 Q624,62 672,36 Q720,14 768,44 Q816,62 864,38 Q912,18 960,46 Q1008,64 1056,38 Q1104,16 1152,44 Q1200,62 1248,36 Q1296,14 1344,42 Q1392,60 1440,36 L1440,0 Z" fill="var(--olive-mid)"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PHUKET SECTION
+═══════════════════════════════════════════ -->
+<section class="sec-olive">
+  <nav class="filters" aria-label="Filter itinerary">
+    <button class="pill active" data-f="all">All</button>
+    <button class="pill" data-f="phuket">Phuket</button>
+    <button class="pill" data-f="bangkok">Bangkok</button>
+    <button class="pill" data-f="wedding">Wedding events</button>
+    <button class="pill" data-f="explore">Things to do</button>
+  </nav>
+
+  <div class="inner">
+    <h2 class="sec-label">Wedding Week — Phuket</h2>
+
+    <!-- Jan 25 -->
+    <article class="event-card" data-tags="phuket travel">
+      <div class="date-col">
+        <span class="date-dow">Mon</span>
+        <span class="date-num">Jan 25</span>
+      </div>
+      <div class="vline"></div>
+      <div class="event-body">
+        <span class="tag tag-travel">Arrival</span>
+        <h3 class="event-title">Family Arrives in Phuket</h3>
+        <p class="event-note">Check into the bridal Airbnb. Shake off the jet lag at <em>Kata Beach</em> — a short drive and calm enough for arrivals. If you land with energy, head into Phuket Old Town for dinner.</p>
+      </div>
+    </article>
+
+    <!-- Jan 26 -->
+    <article class="event-card" data-tags="phuket explore">
+      <div class="date-col">
+        <span class="date-dow">Tue</span>
+        <span class="date-num">Jan 26</span>
+      </div>
+      <div class="vline"></div>
+      <div class="event-body">
+        <span class="tag tag-explore">Explore</span>
+        <h3 class="event-title">Free Day in Phuket</h3>
+        <div class="sub-items">
+          <div class="sub-item"><span class="sub-time">Morning</span><span class="sub-text">Big Buddha &amp; Wat Chalong temple circuit — go early before the heat</span></div>
+          <div class="sub-item"><span class="sub-time">Midday</span><span class="sub-text">Lunch in Phuket Old Town — Kopitiam (Michelin Bib Gourmand) or Sa-nga Noodles</span></div>
+          <div class="sub-item"><span class="sub-time">Afternoon</span><span class="sub-text">Kata or Karon Beach — calmer waters, great for families</span></div>
+          <div class="sub-item"><span class="sub-time">Sunset</span><span class="sub-text">Promthep Cape viewpoint for golden hour drinks</span></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Jan 27 -->
+    <article class="event-card" data-tags="phuket wedding">
+      <div class="date-col">
+        <span class="date-dow">Wed</span>
+        <span class="date-num">Jan 27</span>
+      </div>
+      <div class="vline"></div>
+      <div class="event-body">
+        <span class="tag tag-wedding">Thai Ceremony</span>
+        <h3 class="event-title">Thai Ceremony &amp; Welcome Party</h3>
+        <p class="event-venue">Jantra Residence</p>
+        <span class="event-venue-addr">Tambon Kathu, Kathu District, Phuket 83120</span>
+        <div class="sub-items">
+          <div class="sub-item"><span class="sub-time">9:00 am</span><span class="sub-text">Traditional Buddhist blessing — rod nam sang ritual, traditional dress</span></div>
+          <div class="sub-item"><span class="sub-time">6:00 pm</span><span class="sub-text">Welcome party at Jantra Residence</span></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Jan 28 -->
+    <article class="event-card" data-tags="phuket wedding">
+      <div class="date-col">
+        <span class="date-dow">Thu</span>
+        <span class="date-num">Jan 28</span>
+      </div>
+      <div class="vline"></div>
+      <div class="event-body">
+        <span class="tag tag-stay">Check-in</span>
+        <h3 class="event-title">Check In · Rehearsal Dinner</h3>
+        <p class="event-venue">Sri Panwa Phuket Luxury Pool Villa Hotel</p>
+        <span class="event-venue-addr">88 Sakdidej Rd, Tambon Wichit, Muang Phuket 83000</span>
+        <p class="event-note">Check out of the Airbnb and into Sri Panwa. Afternoon free to settle in before the rehearsal dinner.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     WEDDING DAY
+═══════════════════════════════════════════ -->
+<section class="sec-espresso" data-tags="phuket wedding">
+  <div class="wedding-day-header">
+    <p class="wedding-day-eyebrow">Friday, January 29th, 2027</p>
+    <h2 class="wedding-day-title">The Wedding</h2>
+    <p class="wedding-day-venue">Sri Panwa Phuket &nbsp;·&nbsp; <a href="#">88 Sakdidej Rd, Tambon Wichit, Muang Phuket 83000</a></p>
+  </div>
+
+  <div class="timeline-row">
+    <div class="tl-cell">
+      <span class="tl-time">4:00 pm</span>
+      <span class="tl-event">Arrival &amp;<br/>Welcome</span>
+      <span class="tl-venue">Baba Sunset Lounge</span>
+    </div>
+    <div class="tl-cell">
+      <span class="tl-time">4:30 pm</span>
+      <span class="tl-event">The<br/>Ceremony</span>
+      <span class="tl-venue">Baba Nest Rooftop</span>
+    </div>
+    <div class="tl-cell">
+      <span class="tl-time">5:30 pm</span>
+      <span class="tl-event">Cocktail<br/>Hour</span>
+      <span class="tl-venue">Baba Sunset Lounge</span>
+    </div>
+    <div class="tl-cell">
+      <span class="tl-time">6:30 pm</span>
+      <span class="tl-event">The<br/>Reception</span>
+      <span class="tl-venue">Baba Pool Club</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     PHUKET TAIL (Jan 30–31)
+═══════════════════════════════════════════ -->
+<section class="sec-olive">
+  <div class="inner">
+
+    <!-- Jan 30 -->
+    <article class="event-card" data-tags="phuket wedding explore">
+      <div class="date-col">
+        <span class="date-dow">Sat</span>
+        <span class="date-num">Jan 30</span>
+      </div>
+      <div class="vline"></div>
+      <div class="event-body">
+        <span class="tag tag-wedding">Day After</span>
+        <h3 class="event-title">Yacht Party &amp; Day Club</h3>
+        <p class="event-note">Optional gathering — late afternoon day club or yacht outing.</p>
+        <div class="sub-items">
+          <div class="sub-item"><span class="sub-time">Daytime</span><span class="sub-text">Yacht charter — Phang Nga Bay, James Bond Island, sea caves, snorkeling</span></div>
+          <div class="sub-item"><span class="sub-time">Late PM</span><span class="sub-text">Day club — Catch Beach Club or HQ Beach Lounge for the sunset set</span></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Jan 31 -->
+    <article class="event-card" data-tags="phuket travel">
+      <div class="date-col">
+        <span class="date-dow">Sun</span>
+        <span class="date-num">Jan 31</span>
+      </div>
+      <div class="vline"></div>
+      <div class="event-body">
+        <span class="tag tag-travel">Travel</span>
+        <h3 class="event-title">Fly Phuket → Bangkok</h3>
+        <p class="event-note">~1.5 hr flight. Multiple daily departures on Thai Airways, Bangkok Airways &amp; AirAsia. Check in to Bangkok hotel. Evening: riverside dinner or Khao San Road area.</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- torn: olive → parchment -->
+<div class="torn" style="background:var(--olive-mid);">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 L0,32 Q48,58 96,36 Q144,14 192,42 Q240,62 288,38 Q336,16 384,44 Q432,62 480,36 Q528,12 576,40 Q624,62 672,36 Q720,14 768,44 Q816,62 864,38 Q912,18 960,46 Q1008,64 1056,38 Q1104,16 1152,44 Q1200,62 1248,36 Q1296,14 1344,42 Q1392,60 1440,36 L1440,0 Z" fill="var(--parchment)"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     BANGKOK SECTION (parchment)
+═══════════════════════════════════════════ -->
+<section class="sec-parchment on-parchment" style="text-align:left; padding: 4rem 2rem;">
+  <div class="inner">
+    <h2 class="sec-label" style="color:var(--espresso);">Bangkok &amp; GP's Hometown</h2>
+
+    <!-- Feb 1 -->
+    <article class="event-card" data-tags="bangkok travel">
+      <div class="date-col">
+        <span class="date-dow">Mon</span>
+        <span class="date-num">Feb 1</span>
+      </div>
+      <div class="vline"></div>
+      <div class="event-body">
+        <span class="tag tag-travel">Road Trip</span>
+        <h3 class="event-title">Drive to GP's Hometown</h3>
+        <p class="event-note">Consider stopping at the <em>Ayutthaya ruins</em> en route — a UNESCO World Heritage site and only a short detour.</p>
+      </div>
+    </article>
+
+    <!-- Feb 2 -->
+    <article class="event-card" data-tags="bangkok family">
+      <div class="date-col">
+        <span class="date-dow">Tue</span>
+        <span class="date-num">Feb 2</span>
+      </div>
+      <div class="vline"></div>
+      <div class="event-body">
+        <span class="tag tag-family">Family</span>
+        <h3 class="event-title">Dinner with GP's Family</h3>
+        <p class="event-note">Explore local markets and the town in the morning. Rest in the afternoon, then dinner with the family in the evening.</p>
+      </div>
+    </article>
+
+    <!-- Feb 3 -->
+    <article class="event-card" data-tags="bangkok travel">
+      <div class="date-col">
+        <span class="date-dow">Wed</span>
+        <span class="date-num">Feb 3</span>
+      </div>
+      <div class="vline"></div>
+      <div class="event-body">
+        <span class="tag tag-travel">Travel</span>
+        <h3 class="event-title">Drive Back to Bangkok</h3>
+        <p class="event-note">Return to Bangkok and settle in. Evening: rooftop sundowners — <em>Vertigo at Banyan Tree</em> or <em>Octave Rooftop</em> for the skyline views.</p>
+      </div>
+    </article>
+
+    <!-- Feb 4 -->
+    <article class="event-card" data-tags="bangkok explore">
+      <div class="date-col">
+        <span class="date-dow">Thu</span>
+        <span class="date-num">Feb 4</span>
+      </div>
+      <div class="vline"></div>
+      <div class="event-body">
+        <span class="tag tag-explore">Temples</span>
+        <h3 class="event-title">Grand Palace &amp; River</h3>
+        <div class="sub-items">
+          <div class="sub-item"><span class="sub-time">Morning</span><span class="sub-text">Grand Palace &amp; Wat Phra Kaew (Emerald Buddha) — arrive by 8am to beat the heat and crowds</span></div>
+          <div class="sub-item"><span class="sub-time">Midday</span><span class="sub-text">Wat Pho (Reclining Buddha) + traditional Thai massage on-site</span></div>
+          <div class="sub-item"><span class="sub-time">Afternoon</span><span class="sub-text">Chao Phraya ferry to Wat Arun (Temple of Dawn)</span></div>
+          <div class="sub-item"><span class="sub-time">Evening</span><span class="sub-text">Chinatown (Yaowarat Road) — best street food in Bangkok</span></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Feb 5 -->
+    <article class="event-card" data-tags="bangkok explore">
+      <div class="date-col">
+        <span class="date-dow">Fri</span>
+        <span class="date-num">Feb 5</span>
+      </div>
+      <div class="vline"></div>
+      <div class="event-body">
+        <span class="tag tag-explore">Markets</span>
+        <h3 class="event-title">Markets &amp; Neighborhoods</h3>
+        <div class="sub-items">
+          <div class="sub-item"><span class="sub-time">Morning</span><span class="sub-text">Chatuchak Weekend Market — 15,000 stalls, one of the world's largest (open Sat–Sun; swap with Feb 6 if preferred)</span></div>
+          <div class="sub-item"><span class="sub-time">Afternoon</span><span class="sub-text">Siam Square shopping or Jim Thompson House (silk &amp; history)</span></div>
+          <div class="sub-item"><span class="sub-time">Evening</span><span class="sub-text">Asiatique The Riverfront night market — riverside, great for groups</span></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Feb 6 -->
+    <article class="event-card" data-tags="bangkok explore">
+      <div class="date-col">
+        <span class="date-dow">Sat</span>
+        <span class="date-num">Feb 6</span>
+      </div>
+      <div class="vline"></div>
+      <div class="event-body">
+        <span class="tag tag-explore">Day Trip</span>
+        <h3 class="event-title">Day Trip from Bangkok</h3>
+        <div class="sub-items">
+          <div class="sub-item"><span class="sub-time">Option A</span><span class="sub-text">Ayutthaya — ancient capital ruins, ~1.5 hr by train or car. UNESCO World Heritage Site.</span></div>
+          <div class="sub-item"><span class="sub-time">Option B</span><span class="sub-text">Damnoen Saduak floating market — classic canal boat experience, ~1.5 hrs from Bangkok</span></div>
+          <div class="sub-item"><span class="sub-time">Option C</span><span class="sub-text">Erawan National Park — emerald-green tiered waterfalls, ~3 hr drive (worth it for nature lovers)</span></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Feb 7 -->
+    <article class="event-card" data-tags="bangkok travel" style="border-bottom:none;">
+      <div class="date-col">
+        <span class="date-dow">Sun</span>
+        <span class="date-num">Feb 7</span>
+      </div>
+      <div class="vline"></div>
+      <div class="event-body">
+        <span class="tag tag-travel">Departure</span>
+        <h3 class="event-title">Fly Home from Bangkok</h3>
+        <p class="event-note">Suvarnabhumi (BKK) for most international routes; Don Mueang (DMK) for budget carriers. Allow 3 hours before departure. Safe travels — what a week.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- torn: parchment → espresso -->
+<div class="torn" style="background:var(--parchment);">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 L0,32 Q48,58 96,36 Q144,14 192,42 Q240,62 288,38 Q336,16 384,44 Q432,62 480,36 Q528,12 576,40 Q624,62 672,36 Q720,14 768,44 Q816,62 864,38 Q912,18 960,46 Q1008,64 1056,38 Q1104,16 1152,44 Q1200,62 1248,36 Q1296,14 1344,42 Q1392,60 1440,36 L1440,0 Z" fill="var(--espresso)"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     DRESS CODE
+═══════════════════════════════════════════ -->
+<section class="sec-espresso">
+  <div class="dress-inner">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:8px;">Dress code · Resort formal</p>
+    <h2 class="script-heading" style="color:var(--gold);">Elegant, romantic,<br/>and refined</h2>
+    <p style="font-size:14px; letter-spacing:0.1em; color:var(--gold-dim); line-height:2.1; text-transform:uppercase;">
+      Ladies may opt for flowing gowns or chic midi dresses in light, tropical tones. Gentlemen are encouraged to wear suits in light or classic tones. Think elevated tropical — polished but not stuffy. Black tie is optional.
+    </p>
+  </div>
+</section>
+
+<!-- torn: espresso → dark olive -->
+<div class="torn" style="background:var(--espresso);">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 L0,32 Q48,58 96,36 Q144,14 192,42 Q240,62 288,38 Q336,16 384,44 Q432,62 480,36 Q528,12 576,40 Q624,62 672,36 Q720,14 768,44 Q816,62 864,38 Q912,18 960,46 Q1008,64 1056,38 Q1104,16 1152,44 Q1200,62 1248,36 Q1296,14 1344,42 Q1392,60 1440,36 L1440,0 Z" fill="var(--olive-dark)"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     NOTES PLANNER
+═══════════════════════════════════════════ -->
+<section class="sec-dark">
+  <div class="inner">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:8px; text-align:center;">Personal</p>
+    <h2 class="script-heading" style="color:var(--gold); text-align:center; margin-bottom:0.4rem;">My Trip Notes</h2>
+    <p style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-dim); text-align:center; margin-bottom:2.5rem;">Saved privately in your browser</p>
+    <div class="notes-grid" id="notesGrid"></div>
+  </div>
+</section>
+
+<footer>
+  Victoria &amp; George &nbsp;·&nbsp; January 2027 &nbsp;·&nbsp; Phuket &amp; Bangkok, Thailand
+</footer>
+
+<script>
+  // ── FILTER ──
+  const filterNav = document.querySelector('.filters');
+  document.querySelectorAll('.filters').forEach(nav => {
+    nav.addEventListener('click', function(e) {
+      const btn = e.target.closest('.pill');
+      if (!btn) return;
+      document.querySelectorAll('.pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.f;
+      document.querySelectorAll('[data-tags]').forEach(el => {
+        const tags = el.dataset.tags || '';
+        el.classList.toggle('hidden', f !== 'all' && !tags.includes(f));
+      });
+    });
+  });
+
+  // ── NOTES PLANNER ──
+  const DAYS = [
+    { key: 'jan25', label: 'Mon, Jan 25', title: 'Arrival — Phuket' },
+    { key: 'jan26', label: 'Tue, Jan 26', title: 'Free Day — Phuket' },
+    { key: 'jan27', label: 'Wed, Jan 27', title: 'Thai Ceremony & Welcome Party' },
+    { key: 'jan28', label: 'Thu, Jan 28', title: 'Check-in & Rehearsal Dinner' },
+    { key: 'jan29', label: 'Fri, Jan 29', title: 'The Wedding' },
+    { key: 'jan30', label: 'Sat, Jan 30', title: 'Yacht Party & Day Club' },
+    { key: 'jan31', label: 'Sun, Jan 31', title: 'Fly to Bangkok' },
+    { key: 'feb1',  label: 'Mon, Feb 1',  title: "Drive to GP's Hometown" },
+    { key: 'feb2',  label: 'Tue, Feb 2',  title: "Dinner with GP's Family" },
+    { key: 'feb3',  label: 'Wed, Feb 3',  title: 'Drive Back to Bangkok' },
+    { key: 'feb4',  label: 'Thu, Feb 4',  title: 'Grand Palace & River' },
+    { key: 'feb5',  label: 'Fri, Feb 5',  title: 'Markets & Neighborhoods' },
+    { key: 'feb6',  label: 'Sat, Feb 6',  title: 'Day Trip from Bangkok' },
+    { key: 'feb7',  label: 'Sun, Feb 7',  title: 'Fly Home' },
+  ];
+
+  const grid = document.getElementById('notesGrid');
+  DAYS.forEach(d => {
+    const saved = localStorage.getItem('vg-note-' + d.key) || '';
+    const card = document.createElement('div');
+    card.className = 'note-card';
+    card.innerHTML =
+      '<p class="note-label">' + d.label + '</p>' +
+      '<p class="note-title">' + d.title + '</p>' +
+      '<textarea class="note-ta" rows="3" placeholder="Add notes, plans, reminders…">' + saved + '</textarea>' +
+      '<p class="saved-dot" id="sd-' + d.key + '">Saved ✓</p>';
+    const ta  = card.querySelector('textarea');
+    const dot = card.querySelector('.saved-dot');
+    let timer;
+    ta.addEventListener('input', () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        localStorage.setItem('vg-note-' + d.key, ta.value);
+        dot.classList.add('show');
+        setTimeout(() => dot.classList.remove('show'), 1500);
+      }, 600);
+    });
+    grid.appendChild(card);
+  });
+</script>
+
+</body>
+</html>
