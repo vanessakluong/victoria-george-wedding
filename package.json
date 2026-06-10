@@ -2,7 +2,8 @@
   "name": "victoria-george-wedding",
   "version": "1.0.0",
   "scripts": {
-    "dev": "vite --port 3000"
+    "dev": "vite --port 3000",
+    "build": "vite build"
   },
   "devDependencies": {
     "vite": "^5.0.0"
