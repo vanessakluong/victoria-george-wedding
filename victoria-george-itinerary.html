@@ -240,7 +240,56 @@
     .on-parchment .tag-family  { color: #8a9060; }
     .on-parchment .tag-stay    { color: #7a8840; }
 
-    /* ── WEDDING DAY BANNER ── */
+    /* ── WEDDING DAY TIMELINE (new) ── */
+    .wd-list { display: flex; flex-direction: column; }
+
+    .wd-item {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 1.75rem 0;
+      border-bottom: 0.5px solid #c9b98a18;
+    }
+
+    .wd-time {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      min-width: 64px;
+      flex-shrink: 0;
+      text-align: right;
+    }
+
+    .wd-body { flex: 1; }
+
+    .wd-name {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--cream);
+      line-height: 1.05;
+      margin-bottom: 4px;
+    }
+
+    .wd-venue {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: 13px;
+      color: var(--gold);
+    }
+
+    .wd-icon {
+      width: 68px;
+      height: 68px;
+      flex-shrink: 0;
+      opacity: 0.75;
+    }
+    .wd-icon svg { width: 100%; height: 100%; }
+
+    /* ── WEDDING DAY BANNER (legacy, kept for fallback) ── */
     .wedding-day-header {
       text-align: center;
       margin-bottom: 0;
@@ -571,21 +620,14 @@
   </div>
 </section>
 
-<!-- torn: olive → espresso (wedding day) -->
-<div class="torn" style="background:var(--olive-mid);">
-  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,0 L0,32 Q48,58 96,36 Q144,14 192,42 Q240,62 288,38 Q336,16 384,44 Q432,62 480,36 Q528,12 576,40 Q624,62 672,36 Q720,14 768,44 Q816,62 864,38 Q912,18 960,46 Q1008,64 1056,38 Q1104,16 1152,44 Q1200,62 1248,36 Q1296,14 1344,42 Q1392,60 1440,36 L1440,0 Z" fill="var(--espresso)"/>
-  </svg>
-</div>
-
 <!-- ═══════════════════════════════════════════
      WEDDING DAY
 ═══════════════════════════════════════════ -->
-<section class="sec-espresso" data-tags="phuket wedding">
+<section class="sec-espresso filterable-section" data-tags="phuket wedding">
   <div class="wedding-day-header">
     <p class="wedding-day-eyebrow">Friday · January 29th, 2027</p>
-    <h2 class="wedding-day-title">The Wedding</h2>
-    <p class="wedding-day-venue">Sri Panwa Phuket &nbsp;·&nbsp; <a href="https://www.google.com/maps/search/?api=1&query=Sri+Panwa+Phuket,88+Sakdidej+Rd,Tambon+Wichit,Muang+Phuket+83000,Thailand" target="_blank" rel="noopener">Phuket, Thailand</a></p>
+    <h2 class="wedding-day-title">Wedding Day Timeline</h2>
+    <p class="wedding-day-venue"><a href="https://www.sripanwa.com" target="_blank" rel="noopener">Sri Panwa Phuket</a> &nbsp;·&nbsp; Phuket, Thailand</p>
   </div>
 
   <div class="wedding-ornament"><span>✦</span></div>
@@ -613,13 +655,6 @@
     </div>
   </div>
 </section>
-
-<!-- torn: espresso → olive (post-wedding) -->
-<div class="torn" style="background:var(--espresso);">
-  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,0 L0,32 Q48,58 96,36 Q144,14 192,42 Q240,62 288,38 Q336,16 384,44 Q432,62 480,36 Q528,12 576,40 Q624,62 672,36 Q720,14 768,44 Q816,62 864,38 Q912,18 960,46 Q1008,64 1056,38 Q1104,16 1152,44 Q1200,62 1248,36 Q1296,14 1344,42 Q1392,60 1440,36 L1440,0 Z" fill="var(--olive-mid)"/>
-  </svg>
-</div>
 
 <!-- ═══════════════════════════════════════════
      PHUKET TAIL (Jan 30–31)
