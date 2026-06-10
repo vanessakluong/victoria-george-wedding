@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Victoria &amp; George · Wedding Itinerary</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet" />
   <style>
     :root {
       --olive:       #5c6130;
@@ -19,8 +19,8 @@
       --brown-text:  #4a2e15;
       --brown-muted: #6b4a2a;
 
-      --font-script:  'Great Vibes', cursive;
-      --font-display: 'Playfair Display', Georgia, serif;
+      --font-script:  'Pinyon Script', cursive;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-body:    'Cormorant Garamond', Georgia, serif;
     }
 
@@ -33,68 +33,6 @@
       font-family: var(--font-body);
       font-size: 16px;
       line-height: 1.6;
-    }
-
-    /* ── HERO ── */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      background: var(--olive);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-      padding: 4rem 2rem;
-    }
-
-    .hero-botanical {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.15;
-      pointer-events: none;
-    }
-
-    .hero-content { position: relative; z-index: 1; }
-
-    .hero-monogram {
-      width: 100px;
-      height: 120px;
-      border: 1px solid var(--gold);
-      border-radius: 50% / 55%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 2rem;
-      font-family: var(--font-script);
-      font-size: 44px;
-      color: var(--gold);
-    }
-
-    .hero-eyebrow {
-      font-size: 11px;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--gold-dim);
-      margin-bottom: 0.75rem;
-    }
-
-    .hero-title {
-      font-family: var(--font-script);
-      font-size: clamp(60px, 10vw, 96px);
-      color: var(--cream);
-      line-height: 1.05;
-      margin-bottom: 1.25rem;
-    }
-
-    .hero-date {
-      font-size: 12px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold-dim);
     }
 
     /* ── TORN PAPER ── */
@@ -251,12 +189,12 @@
 
     .event-title {
       font-family: var(--font-display);
-      font-size: clamp(18px, 2.5vw, 26px);
-      font-weight: 700;
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 500;
+      font-style: italic;
       color: var(--cream);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      line-height: 1.15;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
       margin-bottom: 6px;
     }
 
@@ -363,12 +301,12 @@
     .tl-time  { font-size: 11px; letter-spacing: 0.12em; color: var(--gold-dim); display: block; margin-bottom: 6px; }
     .tl-event {
       font-family: var(--font-display);
-      font-size: 18px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
+      font-size: 17px;
+      font-weight: 500;
+      font-style: italic;
+      letter-spacing: 0.01em;
       color: var(--cream);
-      line-height: 1.15;
+      line-height: 1.2;
       display: block;
       margin-bottom: 4px;
     }
@@ -404,11 +342,11 @@
 
     .note-title {
       font-family: var(--font-display);
-      font-size: 15px;
-      font-weight: 700;
+      font-size: 16px;
+      font-weight: 500;
+      font-style: italic;
       color: var(--cream);
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.01em;
       margin-bottom: 10px;
     }
 
@@ -455,87 +393,74 @@
     .hidden { display: none !important; }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 600px) {
-      .notes-grid  { grid-template-columns: 1fr; }
-      .tl-cell     { min-width: 120px; }
-      .date-col    { min-width: 58px; }
+    @media (max-width: 768px) {
+      .sec-parchment,
+      .sec-olive,
+      .sec-espresso,
+      .sec-dark      { padding: 3rem 1.25rem; }
+
+      .filters       { padding: 1.25rem 0 1.75rem; gap: 6px; }
+      .pill          { font-size: 12px; padding: 8px 16px; }
+
+      .event-card    { gap: 12px; padding: 1.25rem 0; }
+      .date-col      { min-width: 54px; }
+      .event-title   { font-size: 18px; }
+      .sub-time      { min-width: 58px; }
+      .sub-text      { font-size: 13px; }
+      .event-note    { font-size: 13px; }
+
+      .timeline-row  {
+        flex-direction: column;
+        border: none;
+        margin-top: 1.75rem;
+        gap: 0;
+      }
+      .tl-cell {
+        border-right: none;
+        border-bottom: 0.5px solid #c9b98a18;
+        padding: 1rem 0;
+        display: grid;
+        grid-template-columns: 70px 1fr;
+        grid-template-rows: auto auto;
+        column-gap: 12px;
+        text-align: left;
+        min-width: unset;
+      }
+      .tl-cell:last-child { border-bottom: none; }
+      .tl-time  { grid-column: 1; grid-row: 1; }
+      .tl-event { grid-column: 2; grid-row: 1; font-size: 16px; }
+      .tl-venue { grid-column: 2; grid-row: 2; }
+
+      .notes-grid { grid-template-columns: 1fr; }
+
+      .script-heading  { font-size: clamp(36px, 9vw, 52px); }
+      .sec-label       { font-size: clamp(34px, 8vw, 48px); }
+      .wedding-day-title { font-size: clamp(48px, 12vw, 72px); }
+      .caps-body       { font-size: 12px; letter-spacing: 0.12em; }
+
+      .dress-inner { padding: 0 0.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .sec-parchment,
+      .sec-olive,
+      .sec-espresso,
+      .sec-dark      { padding: 2.5rem 1rem; }
+
+      .event-card    { gap: 10px; }
+      .date-col      { min-width: 48px; }
+      .date-dow, .date-num { font-size: 9px; }
+
+      .tag           { font-size: 8px; padding: 2px 8px; }
+      .sub-time      { min-width: 52px; font-size: 10px; }
+      .sub-text      { font-size: 12px; }
+
+      .sec-label     { margin-bottom: 1.25rem; }
+      footer         { font-size: 10px; letter-spacing: 0.14em; padding: 2rem 1rem 1rem; }
     }
   </style>
 </head>
 <body>
-
-<!-- ═══════════════════════════════════════════
-     HERO
-═══════════════════════════════════════════ -->
-<header class="hero">
-  <!-- botanical watermark -->
-  <svg class="hero-botanical" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" fill="var(--cream)">
-    <!-- left cluster -->
-    <ellipse cx="70"  cy="220" rx="14" ry="48" transform="rotate(-35 70 220)"/>
-    <ellipse cx="45"  cy="170" rx="11" ry="38" transform="rotate(-60 45 170)"/>
-    <ellipse cx="95"  cy="275" rx="17" ry="52" transform="rotate(-18 95 275)"/>
-    <ellipse cx="125" cy="360" rx="19" ry="54" transform="rotate(22 125 360)"/>
-    <ellipse cx="48"  cy="395" rx="15" ry="44" transform="rotate(-42 48 395)"/>
-    <ellipse cx="145" cy="435" rx="13" ry="36" transform="rotate(12 145 435)"/>
-    <line x1="85" y1="320" x2="82" y2="80"  stroke="var(--cream)" stroke-width="1.5" fill="none"/>
-    <line x1="85" y1="320" x2="48" y2="395" stroke="var(--cream)" stroke-width="1"   fill="none"/>
-    <!-- left flower -->
-    <circle cx="195" cy="145" r="7"/>
-    <ellipse cx="195" cy="122" rx="7" ry="18"/>
-    <ellipse cx="195" cy="168" rx="7" ry="18"/>
-    <ellipse cx="172" cy="145" rx="18" ry="7"/>
-    <ellipse cx="218" cy="145" rx="18" ry="7"/>
-    <!-- right cluster -->
-    <ellipse cx="1110" cy="290" rx="17" ry="50" transform="rotate(28 1110 290)"/>
-    <ellipse cx="1140" cy="195" rx="14" ry="42" transform="rotate(52 1140 195)"/>
-    <ellipse cx="1085" cy="375" rx="19" ry="54" transform="rotate(16 1085 375)"/>
-    <ellipse cx="1158" cy="455" rx="15" ry="44" transform="rotate(38 1158 455)"/>
-    <ellipse cx="1065" cy="460" rx="13" ry="36" transform="rotate(-10 1065 460)"/>
-    <line x1="1115" y1="340" x2="1118" y2="80"  stroke="var(--cream)" stroke-width="1.5" fill="none"/>
-    <line x1="1115" y1="340" x2="1158" y2="455" stroke="var(--cream)" stroke-width="1"   fill="none"/>
-    <!-- bottom foliage -->
-    <ellipse cx="290"  cy="710" rx="21" ry="58" transform="rotate(-22 290 710)"/>
-    <ellipse cx="580"  cy="755" rx="24" ry="64" transform="rotate(4 580 755)"/>
-    <ellipse cx="870"  cy="720" rx="20" ry="55" transform="rotate(18 870 720)"/>
-    <line x1="290"  y1="800" x2="270"  y2="610" stroke="var(--cream)" stroke-width="1.5" fill="none"/>
-    <line x1="870"  y1="800" x2="892"  y2="615" stroke="var(--cream)" stroke-width="1.5" fill="none"/>
-    <!-- top right sprig -->
-    <ellipse cx="1050" cy="65"  rx="12" ry="32" transform="rotate(45 1050 65)"/>
-    <ellipse cx="1020" cy="90"  rx="10" ry="28" transform="rotate(70 1020 90)"/>
-    <ellipse cx="1080" cy="88"  rx="12" ry="30" transform="rotate(20 1080 88)"/>
-  </svg>
-
-  <div class="hero-content">
-    <div class="hero-monogram">V&amp;G</div>
-    <p class="hero-eyebrow">A wedding travel itinerary</p>
-    <h1 class="hero-title">Victoria &amp; George</h1>
-    <p class="hero-date">January 25 – February 7, 2027 &nbsp;·&nbsp; Phuket &amp; Bangkok, Thailand</p>
-  </div>
-</header>
-
-<!-- torn: olive → parchment -->
-<div class="torn" style="background:var(--olive);">
-  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,0 L0,32 Q48,58 96,36 Q144,14 192,42 Q240,62 288,38 Q336,16 384,44 Q432,62 480,36 Q528,12 576,40 Q624,62 672,36 Q720,14 768,44 Q816,62 864,38 Q912,18 960,46 Q1008,64 1056,38 Q1104,16 1152,44 Q1200,62 1248,36 Q1296,14 1344,42 Q1392,60 1440,36 L1440,0 Z" fill="var(--parchment)"/>
-  </svg>
-</div>
-
-<!-- ═══════════════════════════════════════════
-     WELCOME
-═══════════════════════════════════════════ -->
-<section class="sec-parchment">
-  <p class="script-heading">To our favorite people,</p>
-  <p class="caps-body">
-    Welcome to our wedding travel guide. We are so excited to celebrate this special chapter with you in beautiful Thailand. Here you will find everything you need for our wedding week — day by day, from arrival through departure. We cannot wait to share this journey with you.
-  </p>
-</section>
-
-<!-- torn: parchment → olive -->
-<div class="torn" style="background:var(--parchment);">
-  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,0 L0,32 Q48,58 96,36 Q144,14 192,42 Q240,62 288,38 Q336,16 384,44 Q432,62 480,36 Q528,12 576,40 Q624,62 672,36 Q720,14 768,44 Q816,62 864,38 Q912,18 960,46 Q1008,64 1056,38 Q1104,16 1152,44 Q1200,62 1248,36 Q1296,14 1344,42 Q1392,60 1440,36 L1440,0 Z" fill="var(--olive-mid)"/>
-  </svg>
-</div>
 
 <!-- ═══════════════════════════════════════════
      PHUKET SECTION
