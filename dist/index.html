@@ -60,6 +60,8 @@
       color: var(--espresso);
       margin-bottom: 1.75rem;
       line-height: 1.1;
+      max-width: 100%;
+      overflow: hidden;
     }
 
     .caps-body {
@@ -77,6 +79,7 @@
     .sec-olive {
       background: var(--olive-mid);
       padding: 4rem 2rem;
+      overflow-x: clip;
     }
 
     /* ── ESPRESSO SECTION ── */
@@ -84,12 +87,14 @@
       background: var(--espresso);
       color: var(--cream);
       padding: 5rem 2rem;
+      overflow-x: clip;
     }
 
     /* ── DARK OLIVE SECTION ── */
     .sec-dark {
       background: var(--olive-dark);
       padding: 5rem 2rem;
+      overflow-x: clip;
     }
 
     /* ── PAGE NAV PILLS ── */
@@ -647,6 +652,13 @@
   </div>
 </section>
 
+<!-- torn: olive → espresso -->
+<div class="torn" style="background:var(--olive-mid);">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 L0,28 Q36,54 84,34 Q132,14 180,40 Q228,62 276,36 Q324,12 372,42 Q420,64 468,38 Q516,14 564,44 Q612,62 660,34 Q708,10 756,40 Q804,64 852,38 Q900,16 948,44 Q996,62 1044,36 Q1092,12 1140,42 Q1188,62 1236,36 Q1284,12 1332,40 Q1386,60 1440,34 L1440,0 Z" fill="var(--espresso)"/>
+  </svg>
+</div>
+
 <!-- ═══════════════════════════════════════════
      WEDDING DAY
 ═══════════════════════════════════════════ -->
@@ -682,6 +694,13 @@
     </div>
   </div>
 </section>
+
+<!-- torn: espresso → olive -->
+<div class="torn" style="background:var(--espresso);">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 L0,36 Q52,14 100,40 Q148,62 196,36 Q244,12 292,44 Q340,64 388,38 Q436,14 484,42 Q532,62 580,36 Q628,12 676,42 Q724,64 772,38 Q820,14 868,44 Q916,62 964,36 Q1012,12 1060,42 Q1108,62 1156,34 Q1204,10 1252,40 Q1300,62 1348,36 Q1396,14 1440,38 L1440,0 Z" fill="var(--olive-mid)"/>
+  </svg>
+</div>
 
 <!-- ═══════════════════════════════════════════
      PHUKET TAIL (Jan 30–31)
