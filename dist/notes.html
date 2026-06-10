@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes · Victoria &amp; George</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --olive-dark:  #3c4420;
+      --olive-mid:   #4e5830;
+      --gold:        #c8b87a;
+      --gold-dim:    #a89e70;
+      --cream:       #f0eada;
+      --espresso:    #1e2a16;
+      --font-script:  'Pinyon Script', cursive;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Cormorant Garamond', Georgia, serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--olive-dark);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .page-wrap {
+      max-width: 660px;
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
+    }
+
+    /* ── BACK LINK ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      text-decoration: none;
+      margin-bottom: 3.5rem;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .back-link:hover { opacity: 1; }
+
+    /* ── DAY HEADER ── */
+    .day-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      opacity: 0.7;
+      margin-bottom: 0.75rem;
+    }
+
+    .day-title {
+      font-family: var(--font-script);
+      font-size: clamp(48px, 9vw, 72px);
+      color: var(--cream);
+      line-height: 1.05;
+      margin-bottom: 3rem;
+    }
+
+    /* ── ADD NOTE FORM ── */
+    .add-label {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      opacity: 0.75;
+      margin-bottom: 10px;
+    }
+
+    .add-textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 0.5px solid rgba(201,185,138,0.2);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.75;
+      padding: 14px 16px;
+      resize: vertical;
+      outline: none;
+      min-height: 96px;
+      transition: border-color 0.2s;
+    }
+    .add-textarea::placeholder { color: rgba(201,185,138,0.22); }
+    .add-textarea:focus         { border-color: rgba(201,185,138,0.45); }
+
+    .form-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .hint {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(201,185,138,0.3);
+    }
+
+    .save-btn {
+      font-family: var(--font-body);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 9px 26px;
+      background: transparent;
+      border: 0.5px solid rgba(201,185,138,0.35);
+      color: var(--gold-dim);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .save-btn:hover  { border-color: var(--gold); color: var(--cream); }
+    .save-btn.saved  { border-color: rgba(168,200,154,0.5); color: rgba(168,200,154,0.8); }
+
+    /* ── DIVIDER ── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 2.5rem 0;
+    }
+    .ornament::before,
+    .ornament::after {
+      content: '';
+      flex: 1;
+      height: 0.5px;
+      background: rgba(201,185,138,0.15);
+    }
+    .ornament span {
+      font-size: 11px;
+      color: rgba(201,185,138,0.35);
+    }
+
+    /* ── NOTES LIST ── */
+    .notes-list { list-style: none; }
+
+    .note-item {
+      padding: 1.5rem 0;
+      border-bottom: 0.5px solid rgba(201,185,138,0.08);
+    }
+    .note-item:last-child { border-bottom: none; }
+
+    .note-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .note-time {
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(201,185,138,0.35);
+    }
+
+    .note-delete {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(201,185,138,0.25);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: color 0.2s;
+      padding: 0;
+    }
+    .note-delete:hover { color: rgba(201,185,138,0.6); }
+
+    .note-text {
+      font-size: 15px;
+      color: var(--cream);
+      line-height: 1.75;
+      white-space: pre-wrap;
+    }
+
+    /* ── EMPTY STATE ── */
+    .empty-state {
+      text-align: center;
+      padding: 2.5rem 0;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(201,185,138,0.25);
+    }
+
+    @media (max-width: 480px) {
+      .page-wrap { padding: 2rem 1.25rem 5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap" id="app"></div>
+
+  <script>
+    const DAY_INFO = {
+      jan25: { label: 'Monday · Jan 25',    title: 'Arrival' },
+      jan26: { label: 'Tuesday · Jan 26',   title: 'Free Day' },
+      jan27: { label: 'Wednesday · Jan 27', title: 'Thai Ceremony' },
+      jan28: { label: 'Thursday · Jan 28',  title: 'Rehearsal Dinner' },
+      jan29: { label: 'Friday · Jan 29',    title: 'The Wedding' },
+      jan30: { label: 'Saturday · Jan 30',  title: 'Yacht Party' },
+      jan31: { label: 'Sunday · Jan 31',    title: 'Fly to Bangkok' },
+      feb1:  { label: 'Monday · Feb 1',     title: "GP's Hometown" },
+      feb2:  { label: 'Tuesday · Feb 2',    title: 'Family Dinner' },
+      feb3:  { label: 'Wednesday · Feb 3',  title: 'Back to Bangkok' },
+      feb4:  { label: 'Thursday · Feb 4',   title: 'Grand Palace' },
+      feb5:  { label: 'Friday · Feb 5',     title: 'Markets' },
+      feb6:  { label: 'Saturday · Feb 6',   title: 'Day Trip' },
+      feb7:  { label: 'Sunday · Feb 7',     title: 'Fly Home' },
+    };
+
+    const params  = new URLSearchParams(window.location.search);
+    const day     = params.get('day') || 'jan25';
+    const info    = DAY_INFO[day] || { label: 'Notes', title: 'My Notes' };
+    const KEY     = 'vg-notes-' + day;
+
+    function load()  { return JSON.parse(localStorage.getItem(KEY) || '[]'); }
+    function save(n) { localStorage.setItem(KEY, JSON.stringify(n)); }
+
+    function esc(str) {
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    function fmt(iso) {
+      const d = new Date(iso);
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) +
+             ' · ' +
+             d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+    }
+
+    function render() {
+      const notes = load();
+      document.title = info.title + ' Notes · Victoria & George';
+
+      document.getElementById('app').innerHTML = `
+        <a class="back-link" href="/">← Back to itinerary</a>
+
+        <p class="day-eyebrow">${info.label}</p>
+        <h1 class="day-title">${info.title}</h1>
+
+        <label class="add-label" for="new-note">New note</label>
+        <textarea class="add-textarea" id="new-note" placeholder="Jot something down…"></textarea>
+        <div class="form-footer">
+          <span class="hint">⌘ Return to save</span>
+          <button class="save-btn" id="save-btn">Save</button>
+        </div>
+
+        <div class="ornament"><span>✦</span></div>
+
+        ${notes.length === 0
+          ? '<p class="empty-state">No notes yet</p>'
+          : `<ul class="notes-list">
+              ${notes.map((n, i) => `
+                <li class="note-item">
+                  <div class="note-meta">
+                    <span class="note-time">${fmt(n.createdAt)}</span>
+                    <button class="note-delete" data-i="${i}">Delete</button>
+                  </div>
+                  <p class="note-text">${esc(n.text)}</p>
+                </li>
+              `).join('')}
+            </ul>`
+        }
+      `;
+
+      const ta  = document.getElementById('new-note');
+      const btn = document.getElementById('save-btn');
+
+      function saveNote() {
+        const text = ta.value.trim();
+        if (!text) return;
+        const notes = load();
+        notes.unshift({ id: String(Date.now()), text, createdAt: new Date().toISOString() });
+        save(notes);
+        btn.textContent = 'Saved ✓';
+        btn.classList.add('saved');
+        setTimeout(render, 800);
+      }
+
+      btn.addEventListener('click', saveNote);
+
+      ta.addEventListener('keydown', e => {
+        if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') saveNote();
+      });
+
+      document.querySelectorAll('.note-delete').forEach(b => {
+        b.addEventListener('click', () => {
+          const notes = load();
+          notes.splice(parseInt(b.dataset.i), 1);
+          save(notes);
+          render();
+        });
+      });
+    }
+
+    render();
+  </script>
+</body>
+</html>
