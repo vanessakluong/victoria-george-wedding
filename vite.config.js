@@ -8,6 +8,7 @@ export default defineConfig({
         main:       resolve(__dirname, 'index.html'),
         notes:      resolve(__dirname, 'notes.html'),
         itinerary:  resolve(__dirname, 'victoria-george-itinerary.html'),
+        bangkok:    resolve(__dirname, 'bangkok.html'),
       },
     },
   },

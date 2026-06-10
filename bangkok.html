@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bangkok · Victoria &amp; George</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --olive:       #636b38;
+      --olive-dark:  #3c4420;
+      --olive-mid:   #4e5830;
+      --gold:        #c8b87a;
+      --gold-dim:    #a89e70;
+      --cream:       #f0eada;
+      --espresso:    #1e2a16;
+      --font-script:  'Pinyon Script', cursive;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Cormorant Garamond', Georgia, serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+
+    body {
+      background: var(--olive-dark);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── TORN PAPER ── */
+    .torn { display: block; width: 100%; height: 60px; overflow: hidden; line-height: 0; }
+    .torn svg { display: block; width: 100%; height: 100%; }
+
+    /* ── PAGE NAV PILLS ── */
+    .page-nav {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 2.5rem;
+    }
+    .page-pill {
+      font-family: var(--font-body);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 7px 24px;
+      border: 0.5px solid rgba(201,185,138,0.28);
+      border-radius: 99px;
+      color: var(--gold-dim);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .page-pill:hover  { border-color: var(--gold); color: var(--cream); }
+    .page-pill.active { background: rgba(201,185,138,0.14); border-color: var(--gold); color: var(--cream); }
+
+    /* ── NOTE LINK ── */
+    .note-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 14px;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(201,185,138,0.35);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .note-link:hover     { color: var(--gold); }
+    .note-link.has-notes { color: var(--gold-dim); }
+
+    /* ── SECTIONS ── */
+    .sec-olive   { background: var(--olive-mid); padding: 4rem 2rem; }
+    .sec-espresso { background: var(--espresso); color: var(--cream); padding: 5rem 2rem; }
+    .sec-dark    { background: var(--olive-dark); padding: 5rem 2rem; }
+
+    .sec-label {
+      font-family: var(--font-script);
+      font-size: clamp(38px, 5vw, 56px);
+      color: var(--cream);
+      margin-bottom: 2rem;
+      line-height: 1.1;
+    }
+
+    .script-heading {
+      font-family: var(--font-script);
+      font-size: clamp(44px, 6vw, 68px);
+      color: var(--espresso);
+      margin-bottom: 1.75rem;
+      line-height: 1.1;
+    }
+
+    .inner { max-width: 820px; margin: 0 auto; }
+
+    /* ── EVENT CARD ── */
+    .event-card {
+      display: flex;
+      gap: 20px;
+      padding: 1.75rem 0;
+      border-bottom: 0.5px solid #c9b98a18;
+      align-items: flex-start;
+    }
+    .event-card:last-child { border-bottom: none; }
+
+    .date-col { min-width: 72px; flex-shrink: 0; text-align: right; }
+    .date-dow {
+      display: block; font-size: 9px; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--gold-dim);
+    }
+    .date-num {
+      display: block; font-size: 11px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--gold-dim); line-height: 1.7;
+    }
+
+    .vline { width: 0.5px; background: #c9b98a28; align-self: stretch; flex-shrink: 0; }
+    .event-body { flex: 1; }
+
+    .tag {
+      display: inline-block; font-size: 9px; letter-spacing: 0.14em;
+      text-transform: uppercase; padding: 2px 10px;
+      border: 0.5px solid currentColor; border-radius: 2px; margin-bottom: 8px;
+    }
+    .tag-travel  { color: #9ab8d6; }
+    .tag-explore { color: #a8c49a; }
+    .tag-family  { color: #d4a0a0; }
+
+    .event-title {
+      font-family: var(--font-display);
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 500; font-style: italic;
+      color: var(--cream); letter-spacing: 0.01em;
+      line-height: 1.2; margin-bottom: 6px;
+    }
+    .event-note { font-size: 14px; color: var(--gold-dim); line-height: 1.7; }
+    .event-note em { font-style: normal; color: var(--gold); }
+
+    .sub-items { margin-top: 10px; }
+    .sub-item {
+      display: flex; gap: 14px; padding: 5px 0;
+      border-top: 0.5px solid #c9b98a10; align-items: flex-start;
+    }
+    .sub-item:first-child { border-top: none; }
+    .sub-time { font-size: 11px; letter-spacing: 0.05em; color: #c9b98a55; min-width: 68px; padding-top: 2px; flex-shrink: 0; }
+    .sub-text  { font-size: 14px; color: var(--gold-dim); line-height: 1.6; }
+
+    /* ── NOTES GRID ── */
+    .notes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .note-card {
+      background: rgba(255,255,255,0.04);
+      border: 0.5px solid #c9b98a18;
+      padding: 1.25rem 1.5rem;
+    }
+    .note-label { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 4px; }
+    .note-title { font-family: var(--font-display); font-size: 16px; font-weight: 500; font-style: italic; color: var(--cream); letter-spacing: 0.01em; margin-bottom: 10px; }
+    .saved-dot  { font-size: 9px; letter-spacing: 0.1em; color: #a8c49a; opacity: 0; transition: opacity 0.3s; margin-top: 4px; }
+    .saved-dot.show { opacity: 1; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--espresso); border-top: 0.5px solid #c9b98a10;
+      text-align: center; padding: 3rem 0 1.5rem;
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #c9b98a30;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .sec-olive, .sec-espresso, .sec-dark { padding: 3rem 1.25rem; }
+      .event-card { gap: 12px; padding: 1.25rem 0; }
+      .date-col   { min-width: 54px; }
+      .event-title { font-size: 18px; }
+      .sub-time   { min-width: 58px; }
+      .notes-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .sec-olive, .sec-espresso, .sec-dark { padding: 2.5rem 1rem; }
+      footer { font-size: 10px; letter-spacing: 0.14em; padding: 2rem 1rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     BANGKOK SECTION
+═══════════════════════════════════════════ -->
+<section class="sec-olive">
+  <div class="inner">
+    <div style="text-align:center; margin-bottom:3rem;">
+      <nav class="page-nav">
+        <a class="page-pill" href="/">Phuket</a>
+        <a class="page-pill active" href="/bangkok.html">Bangkok</a>
+      </nav>
+      <h1 class="script-heading" style="color:var(--cream); font-size:clamp(52px,8vw,80px); margin-bottom:0.4rem;">Victoria &amp; George</h1>
+      <p style="font-family:var(--font-body); font-size:12px; letter-spacing:0.26em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.25rem;">Bangkok &amp; GP's Hometown</p>
+      <p style="font-family:var(--font-body); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-dim); opacity:0.7;">February 1 – 7, 2027 · Thailand</p>
+    </div>
+
+    <!-- Feb 1 -->
+    <article class="event-card">
+      <div class="date-col">
+        <span class="date-dow">Mon</span>
+        <span class="date-num">Feb 1</span>
+      </div>
+      <div class="vline"></div>
+      <div class="event-body">
+        <span class="tag tag-travel">Road Trip</span>
+        <h3 class="event-title">Drive to GP's Hometown</h3>
+        <p class="event-note">Consider stopping at the <em>Ayutthaya ruins</em> en route — a UNESCO World Heritage site and only a short detour.</p>
+      </div>
+    </article>
+
+    <!-- Feb 2 -->
+    <article class="event-card">
+      <div class="date-col">
+        <span class="date-dow">Tue</span>
+        <span class="date-num">Feb 2</span>
+      </div>
+      <div class="vline"></div>
+      <div class="event-body">
+        <span class="tag tag-family">Family</span>
+        <h3 class="event-title">Dinner with GP's Family</h3>
+        <p class="event-note">Explore local markets and the town in the morning. Rest in the afternoon, then dinner with the family in the evening.</p>
+      </div>
+    </article>
+
+    <!-- Feb 3 -->
+    <article class="event-card">
+      <div class="date-col">
+        <span class="date-dow">Wed</span>
+        <span class="date-num">Feb 3</span>
+      </div>
+      <div class="vline"></div>
+      <div class="event-body">
+        <span class="tag tag-travel">Travel</span>
+        <h3 class="event-title">Drive Back to Bangkok</h3>
+        <p class="event-note">Return to Bangkok and check in. Evening: rooftop drinks — <em>Vertigo at Banyan Tree</em> or <em>Octave Rooftop</em> are both good.</p>
+      </div>
+    </article>
+
+    <!-- Feb 4 -->
+    <article class="event-card">
+      <div class="date-col">
+        <span class="date-dow">Thu</span>
+        <span class="date-num">Feb 4</span>
+      </div>
+      <div class="vline"></div>
+      <div class="event-body">
+        <span class="tag tag-explore">Temples</span>
+        <h3 class="event-title">Grand Palace &amp; River</h3>
+        <div class="sub-items">
+          <div class="sub-item"><span class="sub-time">Morning</span><span class="sub-text">Grand Palace &amp; Wat Phra Kaew (Emerald Buddha) — arrive early, it gets crowded and hot by midday</span></div>
+          <div class="sub-item"><span class="sub-time">Midday</span><span class="sub-text">Wat Pho (Reclining Buddha) + traditional Thai massage on-site</span></div>
+          <div class="sub-item"><span class="sub-time">Afternoon</span><span class="sub-text">Chao Phraya ferry to Wat Arun (Temple of Dawn)</span></div>
+          <div class="sub-item"><span class="sub-time">Evening</span><span class="sub-text">Chinatown (Yaowarat Road) — street food, open late</span></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Feb 5 -->
+    <article class="event-card">
+      <div class="date-col">
+        <span class="date-dow">Fri</span>
+        <span class="date-num">Feb 5</span>
+      </div>
+      <div class="vline"></div>
+      <div class="event-body">
+        <span class="tag tag-explore">Markets</span>
+        <h3 class="event-title">Markets &amp; Neighborhoods</h3>
+        <div class="sub-items">
+          <div class="sub-item"><span class="sub-time">Morning</span><span class="sub-text">Chatuchak Weekend Market — 15,000 stalls, one of the world's largest (open Sat–Sun; swap with Feb 6 if preferred)</span></div>
+          <div class="sub-item"><span class="sub-time">Afternoon</span><span class="sub-text">Siam Square shopping or Jim Thompson House (silk &amp; history)</span></div>
+          <div class="sub-item"><span class="sub-time">Evening</span><span class="sub-text">Asiatique The Riverfront — night market on the river, easy to spend a few hours</span></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Feb 6 -->
+    <article class="event-card">
+      <div class="date-col">
+        <span class="date-dow">Sat</span>
+        <span class="date-num">Feb 6</span>
+      </div>
+      <div class="vline"></div>
+      <div class="event-body">
+        <span class="tag tag-explore">Day Trip</span>
+        <h3 class="event-title">Day Trip from Bangkok</h3>
+        <div class="sub-items">
+          <div class="sub-item"><span class="sub-time">Option A</span><span class="sub-text">Ayutthaya — ancient capital ruins, ~1.5 hr by train or car. UNESCO World Heritage Site.</span></div>
+          <div class="sub-item"><span class="sub-time">Option B</span><span class="sub-text">Damnoen Saduak floating market — classic canal boat experience, ~1.5 hrs from Bangkok</span></div>
+          <div class="sub-item"><span class="sub-time">Option C</span><span class="sub-text">Erawan National Park — tiered waterfalls, ~3 hr drive each way</span></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Feb 7 -->
+    <article class="event-card" style="border-bottom:none;">
+      <div class="date-col">
+        <span class="date-dow">Sun</span>
+        <span class="date-num">Feb 7</span>
+      </div>
+      <div class="vline"></div>
+      <div class="event-body">
+        <span class="tag tag-travel">Departure</span>
+        <h3 class="event-title">Fly Home from Bangkok</h3>
+        <p class="event-note">Suvarnabhumi (BKK) for most international routes; Don Mueang (DMK) for budget carriers. Allow 3 hours before departure. Safe travels — what an incredible week.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- torn: olive → espresso -->
+<div class="torn" style="background:var(--olive-mid);">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 L0,32 Q48,58 96,36 Q144,14 192,42 Q240,62 288,38 Q336,16 384,44 Q432,62 480,36 Q528,12 576,40 Q624,62 672,36 Q720,14 768,44 Q816,62 864,38 Q912,18 960,46 Q1008,64 1056,38 Q1104,16 1152,44 Q1200,62 1248,36 Q1296,14 1344,42 Q1392,60 1440,36 L1440,0 Z" fill="var(--espresso)"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     NOTES PLANNER
+═══════════════════════════════════════════ -->
+<section class="sec-dark">
+  <div class="inner">
+    <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:8px; text-align:center;">Personal</p>
+    <h2 class="script-heading" style="color:var(--gold); text-align:center; margin-bottom:0.4rem;">My Trip Notes</h2>
+    <p style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-dim); text-align:center; margin-bottom:2.5rem;">Saved privately in your browser</p>
+    <div class="notes-grid" id="notesGrid"></div>
+  </div>
+</section>
+
+<footer>
+  Victoria &amp; George &nbsp;·&nbsp; February 2027 &nbsp;·&nbsp; Bangkok, Thailand
+</footer>
+
+<script>
+  const DAYS = [
+    { key: 'feb1',  label: 'Mon · Feb 1',  title: "GP's Hometown" },
+    { key: 'feb2',  label: 'Tue · Feb 2',  title: 'Family Dinner' },
+    { key: 'feb3',  label: 'Wed · Feb 3',  title: 'Back to Bangkok' },
+    { key: 'feb4',  label: 'Thu · Feb 4',  title: 'Grand Palace' },
+    { key: 'feb5',  label: 'Fri · Feb 5',  title: 'Markets' },
+    { key: 'feb6',  label: 'Sat · Feb 6',  title: 'Day Trip' },
+    { key: 'feb7',  label: 'Sun · Feb 7',  title: 'Fly Home' },
+  ];
+
+  // ── NOTE CARDS IN GRID ──
+  const grid = document.getElementById('notesGrid');
+  DAYS.forEach(d => {
+    const notes   = JSON.parse(localStorage.getItem('vg-notes-' + d.key) || '[]');
+    const count   = notes.length;
+    const preview = count ? notes[0].text.slice(0, 60) + (notes[0].text.length > 60 ? '…' : '') : '';
+    const card    = document.createElement('a');
+    card.className       = 'note-card';
+    card.href            = 'notes.html?day=' + d.key;
+    card.style.textDecoration = 'none';
+    card.innerHTML =
+      '<p class="note-label">' + d.label + '</p>' +
+      '<p class="note-title">' + d.title + '</p>' +
+      (preview
+        ? '<p style="font-size:14px; color:var(--gold-dim); line-height:1.6;">' + preview + '</p>'
+        : '<p style="font-size:14px; color:rgba(201,185,138,0.25);">No notes yet — tap to add</p>') +
+      (count ? '<p class="saved-dot show">' + count + ' note' + (count > 1 ? 's' : '') + '</p>' : '');
+    grid.appendChild(card);
+  });
+
+  // ── NOTE LINKS ON EACH EVENT CARD ──
+  document.querySelectorAll('.event-card').forEach(card => {
+    const dateEl = card.querySelector('.date-num');
+    if (!dateEl) return;
+    const key   = dateEl.textContent.trim().toLowerCase().replace(/\s+/g, '');
+    const notes = JSON.parse(localStorage.getItem('vg-notes-' + key) || '[]');
+    const a     = document.createElement('a');
+    a.href      = 'notes.html?day=' + key;
+    a.className = 'note-link' + (notes.length ? ' has-notes' : '');
+    a.textContent = notes.length
+      ? notes.length + ' note' + (notes.length > 1 ? 's' : '') + ' →'
+      : 'Add note →';
+    card.querySelector('.event-body').appendChild(a);
+  });
+</script>
+
+</body>
+</html>
