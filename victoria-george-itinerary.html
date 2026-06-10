@@ -57,12 +57,11 @@
 
     .script-heading {
       font-family: var(--font-script);
-      font-size: clamp(36px, 9vw, 52px);
+      font-size: clamp(28px, 7vw, 68px);
       color: var(--espresso);
       margin-bottom: 1.75rem;
       line-height: 1.6;
       max-width: 100%;
-      padding-bottom: 1em;
     }
 
     .caps-body {
@@ -333,6 +332,8 @@
       color: #e2c07a;
       line-height: 1;
       margin-bottom: 1.25rem;
+      max-width: 100%;
+      overflow: hidden;
     }
 
     .wedding-day-venue {
@@ -533,9 +534,9 @@
 
       .notes-grid { grid-template-columns: 1fr; }
 
-      .script-heading  { font-size: clamp(36px, 9vw, 52px); }
+      .script-heading  { font-size: clamp(28px, 7vw, 52px); }
       .sec-label       { font-size: clamp(34px, 8vw, 48px); }
-      .wedding-day-title { font-size: clamp(48px, 12vw, 72px); }
+      .wedding-day-title { font-size: clamp(28px, 9vw, 72px); }
       .caps-body       { font-size: 12px; letter-spacing: 0.12em; }
 
       .dress-inner { padding: 0 0.5rem; }
@@ -572,7 +573,7 @@
         <a class="page-pill active" href="/">Phuket</a>
         <a class="page-pill" href="/bangkok.html">Bangkok</a>
       </nav>
-      <h1 class="script-heading" style="color:var(--cream); font-size:clamp(36px,10vw,80px); margin-bottom:0.4rem;">Victoria &amp; George</h1>
+      <h1 class="script-heading" style="color:var(--cream); font-size:clamp(28px,7vw,68px); margin-bottom:0.4rem;">Victoria &amp; George</h1>
       <p style="font-family:var(--font-body); font-size:12px; letter-spacing:0.26em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.25rem;">Wedding Itinerary</p>
       <p style="font-family:var(--font-body); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-dim); opacity:0.7;">January 25 – 31, 2027 · Phuket, Thailand</p>
     </div>
@@ -763,6 +764,7 @@
 </footer>
 
 <script>
+  document.documentElement.style.overflowX = 'hidden';
   const DAYS = [
     { key: 'jan25', label: 'Mon · Jan 25', title: 'Arrival' },
     { key: 'jan26', label: 'Tue · Jan 26', title: 'Free Day' },
