@@ -25,7 +25,7 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
+    html { scroll-behavior: smooth; }
 
     body {
       background: var(--olive-dark);
@@ -33,7 +33,6 @@
       font-family: var(--font-body);
       font-size: 16px;
       line-height: 1.6;
-      overflow-x: hidden;
       width: 100%;
       position: relative;
     }
@@ -53,18 +52,15 @@
       background: var(--parchment);
       color: var(--brown-text);
       padding: 5rem 2rem;
-      text-align: center;
-      overflow-x: hidden;
-    }
+      text-align: center;}
 
     .script-heading {
       font-family: var(--font-script);
-      font-size: clamp(44px, 6vw, 68px);
+      font-size: clamp(24px, 6vw, 64px);
       color: var(--espresso);
       margin-bottom: 1.75rem;
-      line-height: 1.6;
+      line-height: 2.2;
       max-width: 100%;
-      padding-bottom: 1em;
     }
 
     .caps-body {
@@ -81,24 +77,18 @@
     /* ── OLIVE SECTION ── */
     .sec-olive {
       background: var(--olive-mid);
-      padding: 4rem 2rem;
-      overflow-x: hidden;
-    }
+      padding: 4rem 2rem;}
 
     /* ── ESPRESSO SECTION ── */
     .sec-espresso {
       background: var(--espresso);
       color: var(--cream);
-      padding: 5rem 2rem;
-      overflow-x: hidden;
-    }
+      padding: 5rem 2rem;}
 
     /* ── DARK OLIVE SECTION ── */
     .sec-dark {
       background: var(--olive-dark);
-      padding: 5rem 2rem;
-      overflow-x: hidden;
-    }
+      padding: 5rem 2rem;}
 
     /* ── PAGE NAV PILLS ── */
     .page-nav {
@@ -189,17 +179,20 @@
       flex-shrink: 0;
     }
 
-    .event-body { flex: 1; }
+    .event-body { flex: 1; min-width: 0; overflow: hidden; }
 
     .tag {
-      display: inline-block;
+      display: block;
+      width: fit-content;
+      max-width: 100%;
       font-size: 9px;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      padding: 2px 10px;
+      padding: 3px 12px;
       border: 0.5px solid currentColor;
-      border-radius: 2px;
+      border-radius: 99px;
       margin-bottom: 8px;
+      box-sizing: border-box;
     }
     .tag-wedding { color: #e2c07a; }
     .tag-travel  { color: #9ab8d6; }
@@ -292,7 +285,7 @@
       text-align: right;
     }
 
-    .wd-body { flex: 1; }
+    .wd-body { flex: 1; min-width: 0; overflow: hidden; }
 
     .wd-name {
       font-family: var(--font-display);
@@ -341,6 +334,8 @@
       color: #e2c07a;
       line-height: 1;
       margin-bottom: 1.25rem;
+      max-width: 100%;
+      overflow: hidden;
     }
 
     .wedding-day-venue {
@@ -507,7 +502,7 @@
       .sec-parchment,
       .sec-olive,
       .sec-espresso,
-      .sec-dark      { padding: 3rem 1.5rem; }
+      .sec-dark      { padding: 3rem 2rem; }
 
       .filters       { padding: 1.25rem 0 1.75rem; gap: 6px; }
       .pill          { font-size: 12px; padding: 8px 16px; }
@@ -541,9 +536,9 @@
 
       .notes-grid { grid-template-columns: 1fr; }
 
-      .script-heading  { font-size: clamp(36px, 9vw, 52px); }
+      .script-heading  { font-size: clamp(22px, 5.5vw, 52px); }
       .sec-label       { font-size: clamp(34px, 8vw, 48px); }
-      .wedding-day-title { font-size: clamp(48px, 12vw, 72px); }
+      .wedding-day-title { font-size: clamp(28px, 9vw, 72px); }
       .caps-body       { font-size: 12px; letter-spacing: 0.12em; }
 
       .dress-inner { padding: 0 0.5rem; }
@@ -569,6 +564,7 @@
   </style>
 </head>
 <body>
+<div id="page-wrap" style="width:100%;position:relative">
 
 <!-- ═══════════════════════════════════════════
      PHUKET SECTION
@@ -580,7 +576,7 @@
         <a class="page-pill active" href="/">Phuket</a>
         <a class="page-pill" href="/bangkok.html">Bangkok</a>
       </nav>
-      <h1 class="script-heading" style="color:var(--cream); font-size:clamp(36px,10vw,80px); margin-bottom:0.4rem;">Victoria &amp; George</h1>
+      <h1 class="script-heading" style="color:var(--cream); font-size:clamp(24px, 6vw, 64px); margin-bottom:0.4rem;">Victoria &amp; George</h1>
       <p style="font-family:var(--font-body); font-size:12px; letter-spacing:0.26em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.25rem;">Wedding Itinerary</p>
       <p style="font-family:var(--font-body); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-dim); opacity:0.7;">January 25 – 31, 2027 · Phuket, Thailand</p>
     </div>
@@ -831,5 +827,6 @@
   }
 </script>
 
+</div>
 </body>
 </html>
