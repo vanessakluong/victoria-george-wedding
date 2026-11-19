@@ -210,6 +210,27 @@
     body { font-weight: 500; }
     .back-link, .day-eyebrow, .add-label { opacity: 1; }
     .hint, .empty-state { color: rgba(216,205,163,0.75); }
+    /* Notes page: larger labels, visible borders, 16px inputs (stops iPhone auto-zoom on tap) */
+    .back-link, .day-eyebrow { font-size: 12px; }
+    .add-label, .hint { font-size: 11px; }
+    .add-textarea { font-size: 16px; border: 1px solid rgba(216,205,163,0.3); }
+    .add-textarea::placeholder { color: rgba(216,205,163,0.55); }
+    .add-textarea:focus { border-color: rgba(216,205,163,0.7); }
+    .save-btn { font-size: 12px; border: 1px solid rgba(216,205,163,0.55); color: var(--cream); }
+    .save-btn:hover { border-color: var(--gold); }
+    .note-time   { font-size: 11px; color: rgba(216,205,163,0.85); }
+    .note-delete { font-size: 11px; color: rgba(216,205,163,0.8); }
+    .add-textarea, .save-btn, .note-delete { font-weight: inherit; }
+    .note-delete:hover { color: var(--cream); }
+    .note-text   { font-size: 16px; }
+    .note-item   { border-bottom: 1px solid rgba(216,205,163,0.15); }
+    .ornament::before, .ornament::after { height: 1px; background: rgba(216,205,163,0.25); }
+    .empty-state { font-size: 12px; }
+    /* "⌘ Return to save" is a keyboard shortcut: hide it on touch screens, keep Save on the right */
+    @media (hover: none) and (pointer: coarse) {
+      .hint { display: none; }
+      .form-footer { justify-content: flex-end; }
+    }
   </style>
 </head>
 <body>
