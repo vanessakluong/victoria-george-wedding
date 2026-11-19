@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Notes · Victoria &amp; George</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet" />
   <style>
     :root {
       --olive-dark:  #3c4420;
@@ -13,7 +13,7 @@
       --gold-dim:    #a89e70;
       --cream:       #f0eada;
       --espresso:    #1e2a16;
-      --font-script:  'Pinyon Script', cursive;
+      --font-script:  'Allura', cursive;
       --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-body:    'Cormorant Garamond', Georgia, serif;
     }
@@ -203,6 +203,8 @@
     @media (max-width: 480px) {
       .page-wrap { padding: 2rem 1.25rem 5rem; }
     }
+    /* Allura has one weight; stop browsers faking a bold that chops stroke ends */
+    .script-heading, .wedding-day-title, .sec-label, .day-title { font-weight: 400; font-synthesis: none; }
   </style>
 </head>
 <body>

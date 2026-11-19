@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Victoria &amp; George · Wedding Itinerary</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet" />
   <style>
     :root {
       --olive:       #636b38;   /* hero green */
@@ -121,7 +121,7 @@
       font-size: 9px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(201,185,138,0.35);
+      color: rgba(201,185,138,0.7);
       text-decoration: none;
       transition: color 0.2s;
     }
@@ -330,12 +330,12 @@
 
     .wedding-day-title {
       font-family: var(--font-script);
-      font-size: clamp(44px, 11vw, 110px);
+      font-size: clamp(24px, 6vw, 64px);
       color: #e2c07a;
-      line-height: 1;
+      line-height: 1.3;
+      padding-bottom: 0.15em;
       margin-bottom: 1.25rem;
       max-width: 100%;
-      overflow: hidden;
     }
 
     .wedding-day-venue {
@@ -494,7 +494,7 @@
       font-size: 11px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: #c9b98a30;
+      color: #c9b98a99;
     }
 
     /* ── RESPONSIVE ── */
@@ -536,9 +536,7 @@
 
       .notes-grid { grid-template-columns: 1fr; }
 
-      .script-heading  { font-size: clamp(22px, 5.5vw, 52px); }
       .sec-label       { font-size: clamp(34px, 8vw, 48px); }
-      .wedding-day-title { font-size: clamp(28px, 9vw, 72px); }
       .caps-body       { font-size: 12px; letter-spacing: 0.12em; }
 
       .dress-inner { padding: 0 0.5rem; }
@@ -561,6 +559,9 @@
       .sec-label     { margin-bottom: 1.25rem; }
       footer         { font-size: 10px; letter-spacing: 0.14em; padding: 2rem 1rem 1rem; }
     }
+    /* Allura has one weight; stop browsers faking a bold that chops stroke ends */
+    .script-heading, .wedding-day-title, .sec-label, .day-title { font-weight: 400; font-synthesis: none; }
+    .names .amp { font-family: 'Allura', cursive; }
   </style>
 </head>
 <body>
@@ -576,7 +577,7 @@
         <a class="page-pill active" href="/">Phuket</a>
         <a class="page-pill" href="/bangkok.html">Bangkok</a>
       </nav>
-      <h1 class="script-heading" style="color:var(--cream); font-size:clamp(24px, 6vw, 64px); margin-bottom:0.4rem;">Victoria &amp; George</h1>
+      <h1 class="script-heading names" style="color:var(--cream); margin-bottom:0.4rem;">Victoria <span class="amp">&amp;</span> George</h1>
       <p style="font-family:var(--font-body); font-size:12px; letter-spacing:0.26em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.25rem;">Wedding Itinerary</p>
       <p style="font-family:var(--font-body); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-dim); opacity:0.7;">January 25 – 31, 2027 · Phuket, Thailand</p>
     </div>
@@ -734,7 +735,7 @@
       <div class="vline"></div>
       <div class="event-body">
         <span class="tag tag-travel">Travel</span>
-        <h3 class="event-title">Fly Home</h3>
+        <h3 class="event-title">Fly to Bangkok</h3>
         <p class="event-note">Phuket International Airport (HKT). Allow 3 hours before departure. Safe travels! <em>Continuing to Bangkok?</em> See the <a href="/bangkok.html" style="color:var(--gold); text-decoration:none;">Bangkok itinerary</a>.</p>
       </div>
     </article>
@@ -758,7 +759,7 @@
     <p style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:8px; text-align:center;">Personal</p>
     <h2 class="script-heading" style="color:var(--gold); text-align:center; margin-bottom:0.4rem;">My Trip Notes</h2>
     <p style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-dim); text-align:center; margin-bottom:2.5rem;">Saved privately in your browser</p>
-    <div class="notes-grid" id="notesGrid" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;"></div>
+    <div class="notes-grid" id="notesGrid"></div>
   </div>
 </section>
 
@@ -774,7 +775,7 @@
     { key: 'jan28', label: 'Thu · Jan 28', title: 'Rehearsal Dinner' },
     { key: 'jan29', label: 'Fri · Jan 29', title: 'The Wedding' },
     { key: 'jan30', label: 'Sat · Jan 30', title: 'Yacht Party' },
-    { key: 'jan31', label: 'Sun · Jan 31', title: 'Fly Home' },
+    { key: 'jan31', label: 'Sun · Jan 31', title: 'Fly to Bangkok' },
   ];
 
   // ── NOTE CARDS IN GRID ──

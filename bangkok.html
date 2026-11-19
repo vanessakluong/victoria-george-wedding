@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bangkok · Victoria &amp; George</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet" />
   <style>
     :root {
       --olive:       #636b38;
@@ -67,7 +67,7 @@
       font-size: 9px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(201,185,138,0.35);
+      color: rgba(201,185,138,0.7);
       text-decoration: none;
       transition: color 0.2s;
     }
@@ -173,7 +173,7 @@
     footer {
       background: var(--espresso); border-top: 0.5px solid #c9b98a10;
       text-align: center; padding: 3rem 0 1.5rem;
-      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #c9b98a30;
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #c9b98a99;
     }
 
     /* ── RESPONSIVE ── */
@@ -189,6 +189,9 @@
       .sec-olive, .sec-espresso, .sec-dark { padding: 2.5rem 1.5rem; }
       footer { font-size: 10px; letter-spacing: 0.14em; padding: 2rem 1rem 1rem; }
     }
+    /* Allura has one weight; stop browsers faking a bold that chops stroke ends */
+    .script-heading, .wedding-day-title, .sec-label, .day-title { font-weight: 400; font-synthesis: none; }
+    .names .amp { font-family: 'Allura', cursive; }
   </style>
 </head>
 <body>
@@ -204,7 +207,7 @@
         <a class="page-pill" href="/">Phuket</a>
         <a class="page-pill active" href="/bangkok.html">Bangkok</a>
       </nav>
-      <h1 class="script-heading" style="color:var(--cream); font-size:clamp(24px, 6vw, 64px); margin-bottom:0.4rem;">Victoria &amp; George</h1>
+      <h1 class="script-heading names" style="color:var(--cream); margin-bottom:0.4rem;">Victoria <span class="amp">&amp;</span> George</h1>
       <p style="font-family:var(--font-body); font-size:12px; letter-spacing:0.26em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.25rem;">Bangkok &amp; GP's Hometown</p>
       <p style="font-family:var(--font-body); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-dim); opacity:0.7;">February 1 – 7, 2027 · Thailand</p>
     </div>
