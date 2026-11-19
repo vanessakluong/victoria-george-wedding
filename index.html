@@ -4,6 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Victoria &amp; George · Wedding Itinerary</title>
+  <meta name="description" content="Phuket, Thailand · January 25–31, 2027" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Victoria &amp; George" />
+  <meta property="og:title" content="Victoria &amp; George · Wedding Itinerary" />
+  <meta property="og:description" content="Phuket, Thailand · January 25–31, 2027" />
+  <meta property="og:url" content="https://victoria-george-wedding.vercel.app/" />
+  <meta property="og:image" content="https://victoria-george-wedding.vercel.app/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Victoria &amp; George · Wedding Itinerary" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="V&amp;G Wedding" />
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -561,6 +576,32 @@
       .sub-time  { font-size: 11px; }
       .tl-event  { font-size: 21px; }
     }
+    /* ── MAP LINKS: tap a place name to open it in Maps ── */
+    a.map {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-decoration-color: rgba(240,234,218,0.4);
+      text-underline-offset: 3px;
+    }
+    a.map:hover { text-decoration-color: currentColor; }
+    .tl-venue a.map { color: inherit; font-weight: inherit; text-decoration-color: rgba(226,209,153,0.5); }
+    /* ── ADD TO CALENDAR ── */
+    .cal-wrap { text-align: center; margin-top: 2.75rem; }
+    .cal-btn {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cream);
+      text-decoration: none;
+      padding: 12px 28px;
+      border: 1px solid rgba(226,209,153,0.6);
+      border-radius: 99px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .cal-btn:hover { background: rgba(226,209,153,0.12); border-color: var(--gold); }
+    .cal-note { margin-top: 10px; font-size: 12px; letter-spacing: 0.06em; color: var(--gold-dim); }
   </style>
 </head>
 <body>
@@ -590,7 +631,7 @@
       <div class="vline"></div>
       <div class="event-body">
         <h3 class="event-title">Guests Arrive in Phuket</h3>
-        <p class="event-note">Check into the Airbnb. <em>Kata Beach</em> is a short drive — calm water, easy afternoon. Phuket Old Town is worth the drive for dinner.</p>
+        <p class="event-note">Check into the Airbnb. <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Kata+Beach%2C+Phuket" target="_blank" rel="noopener">Kata Beach</a> is a short drive — calm water, easy afternoon. <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Phuket+Old+Town" target="_blank" rel="noopener">Phuket Old Town</a> is worth the drive for dinner.</p>
       </div>
     </article>
 
@@ -604,10 +645,10 @@
       <div class="event-body">
         <h3 class="event-title">Free Day in Phuket</h3>
         <div class="sub-items">
-          <div class="sub-item"><span class="sub-time">Morning</span><span class="sub-text">Big Buddha &amp; Wat Chalong temple circuit — go early before the heat</span></div>
-          <div class="sub-item"><span class="sub-time">Midday</span><span class="sub-text">Lunch in Phuket Old Town — Kopitiam (Michelin Bib Gourmand) or Sa-nga Noodles</span></div>
-          <div class="sub-item"><span class="sub-time">Afternoon</span><span class="sub-text">Kata or Karon Beach — calmer waters than Patong, good for swimming</span></div>
-          <div class="sub-item"><span class="sub-time">Sunset</span><span class="sub-text">Promthep Cape viewpoint — drinks with the view</span></div>
+          <div class="sub-item"><span class="sub-time">Morning</span><span class="sub-text"><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Big+Buddha%2C+Phuket" target="_blank" rel="noopener">Big Buddha</a> &amp; <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Wat+Chalong%2C+Phuket" target="_blank" rel="noopener">Wat Chalong</a> temple circuit — go early before the heat</span></div>
+          <div class="sub-item"><span class="sub-time">Midday</span><span class="sub-text">Lunch in Phuket Old Town — <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Kopitiam+by+Wilai%2C+Phuket" target="_blank" rel="noopener">Kopitiam</a> (Michelin Bib Gourmand) or <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Sa-nga+Noodles%2C+Phuket+Old+Town" target="_blank" rel="noopener">Sa-nga Noodles</a></span></div>
+          <div class="sub-item"><span class="sub-time">Afternoon</span><span class="sub-text"><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Kata+Beach%2C+Phuket" target="_blank" rel="noopener">Kata</a> or <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Karon+Beach%2C+Phuket" target="_blank" rel="noopener">Karon Beach</a> — calmer waters than Patong, good for swimming</span></div>
+          <div class="sub-item"><span class="sub-time">Sunset</span><span class="sub-text"><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Promthep+Cape%2C+Phuket" target="_blank" rel="noopener">Promthep Cape</a> viewpoint — drinks with the view</span></div>
         </div>
       </div>
     </article>
@@ -670,23 +711,28 @@
     <div class="tl-cell">
       <span class="tl-time">4:00 pm</span>
       <span class="tl-event">Arrival &amp; Welcome</span>
-      <span class="tl-venue">Baba Sunset Lounge</span>
+      <span class="tl-venue"><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Baba+Sunset+Lounge%2C+Sri+Panwa+Phuket" target="_blank" rel="noopener">Baba Sunset Lounge</a></span>
     </div>
     <div class="tl-cell">
       <span class="tl-time">4:30 pm</span>
       <span class="tl-event">The Ceremony</span>
-      <span class="tl-venue">Baba Nest Rooftop</span>
+      <span class="tl-venue"><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Baba+Nest%2C+Sri+Panwa+Phuket" target="_blank" rel="noopener">Baba Nest Rooftop</a></span>
     </div>
     <div class="tl-cell">
       <span class="tl-time">5:30 pm</span>
       <span class="tl-event">Cocktail Hour</span>
-      <span class="tl-venue">Baba Sunset Lounge</span>
+      <span class="tl-venue"><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Baba+Sunset+Lounge%2C+Sri+Panwa+Phuket" target="_blank" rel="noopener">Baba Sunset Lounge</a></span>
     </div>
     <div class="tl-cell">
       <span class="tl-time">6:30 pm</span>
       <span class="tl-event">The Reception</span>
-      <span class="tl-venue">Baba Pool Club</span>
+      <span class="tl-venue"><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Baba+Pool+Club%2C+Sri+Panwa+Phuket" target="_blank" rel="noopener">Baba Pool Club</a></span>
     </div>
+  </div>
+
+  <div class="cal-wrap">
+    <a class="cal-btn" href="/victoria-george-wedding-day.ics">Add to calendar</a>
+    <p class="cal-note">All four wedding-day events · Thailand time</p>
   </div>
 </section>
 
@@ -714,8 +760,8 @@
         <h3 class="event-title">Yacht Party &amp; Day Club</h3>
         <p class="event-note">Optional — details TBD closer to the date.</p>
         <div class="sub-items">
-          <div class="sub-item"><span class="sub-time">Daytime</span><span class="sub-text">Yacht charter — Phang Nga Bay, James Bond Island, sea caves, snorkeling</span></div>
-          <div class="sub-item"><span class="sub-time">Late PM</span><span class="sub-text">Day club — Catch Beach Club or HQ Beach Lounge</span></div>
+          <div class="sub-item"><span class="sub-time">Daytime</span><span class="sub-text">Yacht charter — <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Phang+Nga+Bay" target="_blank" rel="noopener">Phang Nga Bay</a>, <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=James+Bond+Island%2C+Phang+Nga" target="_blank" rel="noopener">James Bond Island</a>, sea caves, snorkeling</span></div>
+          <div class="sub-item"><span class="sub-time">Late PM</span><span class="sub-text">Day club — <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Catch+Beach+Club%2C+Phuket" target="_blank" rel="noopener">Catch Beach Club</a> or <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=HQ+Beach+Lounge%2C+Phuket" target="_blank" rel="noopener">HQ Beach Lounge</a></span></div>
         </div>
       </div>
     </article>
@@ -729,7 +775,7 @@
       <div class="vline"></div>
       <div class="event-body">
         <h3 class="event-title">Fly to Bangkok</h3>
-        <p class="event-note">Phuket International Airport (HKT). Allow 3 hours before departure. Safe travels! <em>Continuing to Bangkok?</em> See the <a href="/bangkok.html" style="color:var(--gold); text-decoration:none;">Bangkok itinerary</a>.</p>
+        <p class="event-note"><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Phuket+International+Airport" target="_blank" rel="noopener">Phuket International Airport</a> (HKT). Allow 3 hours before departure. Safe travels! <em>Continuing to Bangkok?</em> See the <a href="/bangkok.html" style="color:var(--gold); text-decoration:none;">Bangkok itinerary</a>.</p>
       </div>
     </article>
 

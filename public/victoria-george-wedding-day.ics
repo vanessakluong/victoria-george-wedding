@@ -1,0 +1,79 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Victoria & George//Wedding Itinerary//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Victoria & George · Wedding Day
+X-WR-TIMEZONE:Asia/Bangkok
+BEGIN:VTIMEZONE
+TZID:Asia/Bangkok
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0700
+TZOFFSETTO:+0700
+TZNAME:ICT
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:arrival-20270129@victoria-george-wedding.vercel.app
+DTSTAMP:20261119T000000Z
+DTSTART;TZID=Asia/Bangkok:20270129T160000
+DTEND;TZID=Asia/Bangkok:20270129T163000
+SUMMARY:Arrival & Welcome · Victoria & George
+LOCATION:Baba Sunset Lounge\, Sri Panwa Phuket\, 88 Sakdidej Rd\, Tambon Wi
+ chit\, Muang Phuket 83000\, Thailand
+DESCRIPTION:Victoria & George's wedding day at Sri Panwa Phuket.\nFull itin
+ erary: https://victoria-george-wedding.vercel.app/
+URL:https://victoria-george-wedding.vercel.app/
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Victoria & George's wedding starts in 1 hour
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:ceremony-20270129@victoria-george-wedding.vercel.app
+DTSTAMP:20261119T000000Z
+DTSTART;TZID=Asia/Bangkok:20270129T163000
+DTEND;TZID=Asia/Bangkok:20270129T173000
+SUMMARY:The Ceremony · Victoria & George
+LOCATION:Baba Nest Rooftop\, Sri Panwa Phuket\, 88 Sakdidej Rd\, Tambon Wic
+ hit\, Muang Phuket 83000\, Thailand
+DESCRIPTION:Victoria & George's wedding day at Sri Panwa Phuket.\nFull itin
+ erary: https://victoria-george-wedding.vercel.app/
+URL:https://victoria-george-wedding.vercel.app/
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:cocktails-20270129@victoria-george-wedding.vercel.app
+DTSTAMP:20261119T000000Z
+DTSTART;TZID=Asia/Bangkok:20270129T173000
+DTEND;TZID=Asia/Bangkok:20270129T183000
+SUMMARY:Cocktail Hour · Victoria & George
+LOCATION:Baba Sunset Lounge\, Sri Panwa Phuket\, 88 Sakdidej Rd\, Tambon Wi
+ chit\, Muang Phuket 83000\, Thailand
+DESCRIPTION:Victoria & George's wedding day at Sri Panwa Phuket.\nFull itin
+ erary: https://victoria-george-wedding.vercel.app/
+URL:https://victoria-george-wedding.vercel.app/
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:reception-20270129@victoria-george-wedding.vercel.app
+DTSTAMP:20261119T000000Z
+DTSTART;TZID=Asia/Bangkok:20270129T183000
+DTEND;TZID=Asia/Bangkok:20270129T230000
+SUMMARY:The Reception · Victoria & George
+LOCATION:Baba Pool Club\, Sri Panwa Phuket\, 88 Sakdidej Rd\, Tambon Wichit
+ \, Muang Phuket 83000\, Thailand
+DESCRIPTION:Victoria & George's wedding day at Sri Panwa Phuket.\nEnd time 
+ to be confirmed.\nFull itinerary: https://victoria-george-wedding.vercel.a
+ pp/
+URL:https://victoria-george-wedding.vercel.app/
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

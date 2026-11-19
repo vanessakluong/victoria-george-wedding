@@ -1,1 +1,12 @@
-{}
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    },
+    {
+      "source": "/victoria-george-wedding-day.ics",
+      "headers": [{ "key": "Content-Type", "value": "text/calendar; charset=utf-8" }]
+    }
+  ]
+}
