@@ -547,12 +547,19 @@
     .note-link { color: var(--gold-dim); }
     .wedding-day-eyebrow, .wedding-day-venue, .tl-time, .tl-venue { opacity: 1; }
     footer { color: var(--gold-dim); }
+    /* Wedding day timeline: larger times & venues, medium-weight event names */
+    .wedding-day-eyebrow { font-size: 12px; }
+    .wedding-day-venue   { font-size: 12px; }
+    .tl-time  { font-size: 13px; letter-spacing: 0.18em; }
+    .tl-event { font-weight: 500; }
+    .tl-venue { font-size: 14px; letter-spacing: 0.02em; }
     @media (max-width: 768px) {
       .event-note, .sub-text { font-size: 15px; }
       .event-venue-addr { font-size: 12px; }
       .date-dow  { font-size: 10px; }
       .date-num  { font-size: 12px; }
       .sub-time  { font-size: 11px; }
+      .tl-event  { font-size: 21px; }
     }
   </style>
 </head>
