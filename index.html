@@ -539,6 +539,21 @@
     /* Allura has one weight; stop browsers faking a bold that chops stroke ends */
     .script-heading, .wedding-day-title, .sec-label, .day-title { font-weight: 400; font-synthesis: none; }
     .names .amp { font-family: 'Allura', cursive; }
+    /* ── READABILITY: lighter gold & tan, medium weight, larger small text on phones ── */
+    :root { --gold: #e2d199; --gold-dim: #d8cda3; }
+    body { font-weight: 500; }
+    .sub-time { color: var(--gold-dim); }
+    .event-note em, .sub-text em, .event-note a, .sub-text a { color: var(--cream); font-weight: 600; }
+    .note-link { color: var(--gold-dim); }
+    .wedding-day-eyebrow, .wedding-day-venue, .tl-time, .tl-venue { opacity: 1; }
+    footer { color: var(--gold-dim); }
+    @media (max-width: 768px) {
+      .event-note, .sub-text { font-size: 15px; }
+      .event-venue-addr { font-size: 12px; }
+      .date-dow  { font-size: 10px; }
+      .date-num  { font-size: 12px; }
+      .sub-time  { font-size: 11px; }
+    }
   </style>
 </head>
 <body>
@@ -556,7 +571,7 @@
       </nav>
       <h1 class="script-heading names" style="color:var(--cream); margin-bottom:0.4rem;">Victoria <span class="amp">&amp;</span> George</h1>
       <p style="font-family:var(--font-body); font-size:12px; letter-spacing:0.26em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.25rem;">Wedding Itinerary</p>
-      <p style="font-family:var(--font-body); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-dim); opacity:0.7;">January 25 – 31, 2027 · Phuket, Thailand</p>
+      <p style="font-family:var(--font-body); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-dim);">January 25 – 31, 2027 · Phuket, Thailand</p>
     </div>
 
     <!-- Jan 25 -->
@@ -764,7 +779,7 @@
       '<p class="note-title">' + d.title + '</p>' +
       (preview
         ? '<p class="note-ta" style="border:none; resize:none; min-height:unset; pointer-events:none;">' + preview + '</p>'
-        : '<p class="note-ta" style="border:none; resize:none; min-height:unset; pointer-events:none; color:rgba(201,185,138,0.25);">No notes yet — tap to add</p>') +
+        : '<p class="note-ta" style="border:none; resize:none; min-height:unset; pointer-events:none; color:rgba(216,205,163,0.75);">No notes yet — tap to add</p>') +
       (count ? '<p class="saved-dot show">' + count + ' note' + (count > 1 ? 's' : '') + '</p>' : '');
     grid.appendChild(card);
   });
